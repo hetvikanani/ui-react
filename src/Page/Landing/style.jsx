@@ -1,8 +1,6 @@
 import styled from "styled-components";
 const FarmStyle = styled.div`
-
-
-//navbar
+  //navbar
 
   .RowNav {
     display: flex;
@@ -24,7 +22,7 @@ const FarmStyle = styled.div`
     margin: 0 0.7rem;
   }
 
-.ant-menu {
+  .ant-menu {
     background: #183444;
     color: white;
   }
@@ -39,9 +37,16 @@ const FarmStyle = styled.div`
   }
 
   .advanceSearch {
-    width: 65%;
+    position: fixed;
+    width: 200px;
+    top: 5px;
+    color: white;
   }
-
+  .resource {
+    position: fixed;
+    width: 100px;
+    top: 5px;
+  }
   .resource .ant-menu-submenu .ant-menu-submenu-title {
     padding: 0 !important;
   }
@@ -60,10 +65,17 @@ const FarmStyle = styled.div`
   //topbar
 
   .topBar-section {
+    box-sizing: border-box;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODgwIDUwMCI+PGRlZnM+PHN0eWxlPi5jbHMtMntmaWxsOiMxNDZhZmY7b3BhY2l0eTouMDN9PC9zdHlsZT48L2RlZnM+PHBhdGggZmlsbD0iI2Y1ZjhmZiIgZD0iTTAgMGgyODgwdjUwMEgweiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI4ODAgNTAwSDBWNTguODVDNTA1LjIxNCAyOTIuNjc4IDE1MjcuNjEyIDI0MC41NjQgMjg4MCAweiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI4ODAgNTAwSDBWMzA3LjFjMjU2LjY0My02MjMuMzE1IDI0MzEuMDM5IDE2NC41NjkgMjg4MCAxODguMjI2eiIvPjwvc3ZnPg==);
+    background-color: #e9eff5;
     padding: 2rem 2rem 0rem 2rem;
     display: flex;
     width: 100%;
-    background-color: #e9f0ff;
+
     border: white;
   }
   .topBar-img {
@@ -77,9 +89,7 @@ const FarmStyle = styled.div`
     align-items: center;
     justify-content: space-between;
   }
-  .topBar-first-heading {
-    margin: 0rem 0rem 1rem 2rem;
-  }
+
   .topBar-header {
     font-size: 2rem;
     font-weight: 500;
@@ -87,6 +97,7 @@ const FarmStyle = styled.div`
   .topBar-btn {
     border-color: #f5a623;
     border-radius: 10px;
+    margin-right: 10px;
   }
   .TopBar-side {
     margin-right: 8rem;
@@ -125,10 +136,10 @@ const FarmStyle = styled.div`
     border-left: 1px solid #e5e4e2;
     height: 25rem;
   }
-  .divider{
-    border:none;
+  .divider {
+    border: none;
     height: 20px;
-     width: 100%;
+    width: 100%;
     height: 50px;
     margin-top: 0;
     border-bottom: 1px solid white;
@@ -136,13 +147,10 @@ const FarmStyle = styled.div`
     margin: -50px auto 10px;
   }
 
-  .viewLink{
-    text-align:centre;
+  .viewLink {
+    text-align: centre;
   }
 
-  
-
-  
   .SaveBtn {
     border-radius: 10px;
     background-color: #146aff;
@@ -156,20 +164,19 @@ const FarmStyle = styled.div`
     padding-left: 16px;
     font-size: 2rem;
   }
-  //middle 
+  //middle
 
-.middle-span{
- display:flex;
-}
-//comapany
+  .middle-span {
+    display: flex;
+  }
+  //comapany
 
-.company-section{
-  margin-top:2rem;
-}
-
+  .company-section {
+    margin-top: 2rem;
+  }
 
   //footer
-  
+
   .Box {
     background: #183444;
     width: 100%;
@@ -182,7 +189,7 @@ const FarmStyle = styled.div`
     max-width: 1000px;
     margin: 0 auto;
   }
-  .footerHeading{
+  .footerHeading {
     color: white;
     letter-spacing: 1px;
     font-size: 178%;
@@ -233,6 +240,26 @@ const FarmStyle = styled.div`
     font-weight: bold;
     margin-top: 1rem;
     margin-left: 10rem;
+  }
+
+  .jadu {
+    box-sizing: border-box;
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyODgwIDUwMCI+PGRlZnM+PHN0eWxlPi5jbHMtMntmaWxsOiMxNDZhZmY7b3BhY2l0eTouMDN9PC9zdHlsZT48L2RlZnM+PHBhdGggZmlsbD0iI2Y1ZjhmZiIgZD0iTTAgMGgyODgwdjUwMEgweiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI4ODAgNTAwSDBWNTguODVDNTA1LjIxNCAyOTIuNjc4IDE1MjcuNjEyIDI0MC41NjQgMjg4MCAweiIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTI4ODAgNTAwSDBWMzA3LjFjMjU2LjY0My02MjMuMzE1IDI0MzEuMDM5IDE2NC41NjkgMjg4MCAxODguMjI2eiIvPjwvc3ZnPg==);
+    background-color: #e9eff5;
+    box-shadow: 0 7px 4px -4px #00000042;
+    padding: 0;
+    top: 60px;
+    z-index: 2;
+    position: fixed;
+    height: 100px;
+    /* padding: 2rem 2rem 0rem 2rem; */
+    display: flex;
+    width: 100%;
+    border: white;
   }
 `;
 
