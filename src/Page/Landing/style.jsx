@@ -1,5 +1,9 @@
 import styled from "styled-components";
 const FarmStyle = styled.div`
+
+
+//navbar
+
   .RowNav {
     display: flex;
     align-items: center;
@@ -9,6 +13,9 @@ const FarmStyle = styled.div`
     width: 100vw;
     height: 60px;
     background-color: #183444;
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
   .header {
     color: white;
@@ -16,7 +23,8 @@ const FarmStyle = styled.div`
     font-size: 166%;
     margin: 0 0.7rem;
   }
-  .ant-menu {
+
+.ant-menu {
     background: #183444;
     color: white;
   }
@@ -49,6 +57,8 @@ const FarmStyle = styled.div`
     font-weight: bold;
   }
 
+  //topbar
+
   .topBar-section {
     padding: 2rem 2rem 0rem 2rem;
     display: flex;
@@ -70,6 +80,17 @@ const FarmStyle = styled.div`
   .topBar-first-heading {
     margin: 0rem 0rem 1rem 2rem;
   }
+  .topBar-header {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .topBar-btn {
+    border-color: #f5a623;
+    border-radius: 10px;
+  }
+  .TopBar-side {
+    margin-right: 8rem;
+  }
 
   .ant-tabs-nav {
     margin: -2px !important;
@@ -90,13 +111,128 @@ const FarmStyle = styled.div`
     background-color: white !important;
   }
 
+  .OrganizationDiv {
+    padding: 0.5rem;
+  }
+
+  //about
+
   .aboutRow {
     width: 100%;
-    height: 70vh;
   }
   .verticalLine {
-    border-left: 1px solid red;
-    height: 26rem;
+    margin-top: 1rem;
+    border-left: 1px solid #e5e4e2;
+    height: 25rem;
+  }
+  .divider{
+    border:none;
+    height: 20px;
+     width: 100%;
+    height: 50px;
+    margin-top: 0;
+    border-bottom: 1px solid white;
+    box-shadow: 0 20px 3px -20px #333;
+    margin: -50px auto 10px;
+  }
+
+  .viewLink{
+    text-align:centre;
+  }
+
+  
+
+  
+  .SaveBtn {
+    border-radius: 10px;
+    background-color: #146aff;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding-top: -1px;
+  }
+  .dotSpan {
+    font-weight: 700;
+    padding-left: 16px;
+    font-size: 2rem;
+  }
+  //middle 
+
+.middle-span{
+ display:flex;
+}
+//comapany
+
+.company-section{
+  margin-top:2rem;
+}
+
+
+  //footer
+  
+  .Box {
+    background: #183444;
+    width: 100%;
+    padding-top: 1rem;
+  }
+  .Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .footerHeading{
+    color: white;
+    letter-spacing: 1px;
+    font-size: 178%;
+    margin: 0 0.7rem;
+  }
+  .footerCol {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 60px;
+  }
+  .footerHead {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
+  .footerDiv {
+    color: #fff;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .footerDiv2 {
+    color: #fff;
+    margin-top: 2.8125rem;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .footerDiv3 {
+    color: #fff;
+    padding-top: 7px;
+  }
+  .footerCol1 {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 7rem;
+  }
+  .footerEnd {
+    color: white;
+    font-weight: bold;
+    margin-top: 4rem;
+    margin-left: 23rem;
+  }
+  .footerEnd1 {
+    color: white;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-left: 10rem;
   }
 `;
 
