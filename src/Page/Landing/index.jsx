@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Divider } from "antd";
+import { Divider, Image } from "antd";
 import { BuildOutlined } from "@ant-design/icons";
-
+import Logo from "../../Image/farm.png";
 import { FarmStyle } from "./style";
 import { Row, Col, Button, Card, Tabs } from "../../components";
 import Navbar from "./Navbar";
@@ -33,7 +33,7 @@ export default class Farm extends Component {
 
         <div className={`${stick ? "topBar-section" : "jadu"}`}>
           <div className="topBar-img">
-            <img alt="farm" width={100} src="../../Image/farm.png"></img>
+            <Image src={Logo}></Image>
           </div>
           <div className="topBar-first">
             <div className={`${!stick ? "topBar-first-heading" : ""}`}>
@@ -54,21 +54,27 @@ export default class Farm extends Component {
               </div>
               <div className="TopBar-side">
                 <Button className="topBar-btn">
-                  <i class="fa fa-bolt"></i>Connect To CRM
+                  <i class="fa fa-bolt logo"></i>CONNECT TO CRM
                 </Button>
 
                 <span>
-                  <Button className="SaveBtn">SAVE</Button>
+                  <Button className="SaveBtn">
+                    <i class="fas fa-plus-circle iconPlus"></i>SAVE
+                  </Button>
                 </span>
                 <span className="dotSpan">:</span>
               </div>
             </div>
             <div>
               <Tabs
+                className="TopBar-tab"
                 type="card"
                 tabOptions={[
                   { key: "1", tab: "Summary" },
                   { key: "2", tab: "Financials" },
+                  { key: "3", tab: "People" },
+                  { key: "4", tab: "Technology" },
+                  { key: "5", tab: "Signals & News" },
                 ]}
                 defaultActiveKey="1"
               ></Tabs>
@@ -77,43 +83,74 @@ export default class Farm extends Component {
         </div>
         <Row gutter={24} className="aboutRow">
           <Col span={7}>
-            <Card>
-              <h1>About</h1>
+            <Card className="middleCard">
+              <h1>
+                {" "}
+                <BuildOutlined style={{ paddingRight: "9px" }} />
+                About
+              </h1>
               <p>
                 FarmLead is North America's grain marketplace. Changing the way
                 farmers sell grain.
               </p>
-              <p>Ottawa, Ontario, Canada</p>
-              <p>11-50</p>
-              <p>Series A</p>
-              <p>Private</p>
-              <p>FarmLead.com</p>
-              <p>25,679</p>
+
+              <p>
+                <i class="fas fa-map-marker-alt">Ottawa, Ontario, Canada</i>
+              </p>
+
+              <p>
+                <i class="fas fa-user-friends"></i>11-50
+              </p>
+              <p>
+                <i class="fas fa-dollar-sign"></i>Series
+              </p>
+              <p>
+                <i class="fas fa-flag"></i>Private
+              </p>
+              <p>
+                <i class="fas fa-globe-asia"></i>FarmLead.com
+              </p>
+              <p>
+                <i class="far fa-chart-bar"></i>25,679
+              </p>
             </Card>
           </Col>
           <div className="verticalLine"></div>
           <Col span={8}>
             <Card style={{ width: 400 }}>
-              <h1>Highlights</h1>
+              <h1>
+                {" "}
+                <i class="far fa-newspaper" style={{ paddingRight: "9px" }}></i>
+                Highlights
+              </h1>
             </Card>
           </Col>
           <div className="verticalLine"></div>
           <Col span={8}>
             <Card>
-              <h1>Recent News & Activity </h1>
+              <h1 className="topNews">
+                <i
+                  class="fas fa-network-wired"
+                  style={{ paddingRight: "9px" }}
+                ></i>
+                Recent News & Activity{" "}
+              </h1>
               <p>
+                <i class="fas fa-newspaper iconNews"></i>
                 News • Aug 19, 2020 <br />
                 Manila Bulletin — Be Work and Watch-Ready at Home with Bigger
                 Data Packs
               </p>
               <Divider style={{ backgroundColor: "#d3d3d3" }} />
               <p>
+                <i class="fas fa-newspaper iconNews"></i>
                 News • Aug 19, 2020 <br />
                 Manila Bulletin — Be Work and Watch-Ready at Home with Bigger
                 Data Packs
               </p>
               <Divider style={{ backgroundColor: "#d3d3d3" }} />
               <p>
+                <i class="fas fa-newspaper iconNews"></i>
                 News • Aug 19, 2020 <br />
                 Manila Bulletin — Be Work and Watch-Ready at Home with Bigger
                 Data Packs
@@ -125,69 +162,133 @@ export default class Farm extends Component {
           </Col>
         </Row>
         <Divider className="divider" />
-        <div className="middle-section" style={{ border: "1px solid red" }}>
-          <div className="middle-header">
-            <Card>
-              <h1>Details</h1>
-              <p>Industries</p>
-              {/* <div className="middle-span">
-            <span> Agriculture</span>
-              <span>Farming</span>
-              <span>Marketplace</span>
-              <span>Mobile Apps</span>
-            </div> */}
-              <p>
-                Founded Date
-                <br />
-                2013
-              </p>
-              <p>
-                Operating Status <br />
-                Active
-              </p>
-              <p>
-                Legal Name <br />
-                FarmLead Resources Ltd.
-              </p>
-              <Divider style={{ border: "1px solid #e5e4e2" }} />
-              <p>
-                Company Type <br />
-                For Profit
-              </p>
-              <Divider style={{ border: "1px solid #e5e4e2" }} />
-              <p>
-                Contact Email <br />
-                contact@farmlead.com
-                <p style={{ paddingTop: "1rem" }}>
-                  Built by farmers for farmers, FarmLead is reinventing how
-                  grain is marketed and sold through the world’s fastest growing
-                  grain
-                  <br /> marketplace. Available online and as a mobile app,
-                  FarmLead also provides farmers access to exclusive market
-                  research, grain
-                  <br /> testing, price visibility and reduced brokerage fees
-                  and risks. The FarmLead Marketplace
-                </p>
-              </p>
-            </Card>
-          </div>
-        </div>
-        <div className="company-section" style={{ border: "1px solid red" }}>
-          <div className="middle-header">
-            <Card>
-              <h1>Lists Featuring This Company</h1>
+        <Row gutter={24}>
+          <Col span={16}>
+            {/* <div className="middle-section"> */}
+              {/* <div className="middle-header"> */}
+                <Card className="cardShadow">
+                  <h1>Details</h1>
+                  <p>Industries</p>
+           
+                  <div> Founded Date</div>
+                  <div className="bottomeDiv">2013</div>
+                  <br />
+                  <div>Operating Status </div>
+                  <div className="bottomeDiv"> Active</div>
+                  <br />
 
-              <div>
-                <p>image</p>
+                  <div>Legal Name </div>
+                  <div className="bottomeDiv">FarmLead Resources Ltd.</div>
+                  
+                  <Divider style={{ border: "1px solid #e5e4e2" }} />
+                  <div> Company Type </div>
+                  <div className="bottomeDiv"> For Profit</div>
+                  
+                  <Divider style={{ border: "1px solid #e5e4e2"}} />
+                  <div>  Contact Email </div>
+                  <div className="bottomeDiv">contact@farmlead.com</div>
+                  <p>
+                   
+                    
+                   
+                    <p style={{ paddingTop: "1rem" }}>
+                      Built by farmers for farmers, FarmLead is reinventing how
+                      grain is marketed and sold through the world’s fastest
+                      growing grain
+                      marketplace. Available online and as a mobile app,
+                      FarmLead also provides farmers access to excl market
+                      research, grain
+                     testing, price visibility and reduced brokerage
+                      fees and risks. The FarmLead Marketplace...
+                    </p>
+                  </p>
+                </Card>
+              {/* </div> */}
+            {/* </div> */}
+          </Col>
+          <Col span={8}></Col>
+        </Row>
+        <Row gutter={24}>
+          <Col span={16}>
+            <div className="company-section">
+              <div className="middle-header">
+                <Card>
+                  <h1>Lists Featuring This Company</h1>
+
+                  <div className="container2">
+                    <Image
+                      src={Logo}
+                      width={50}
+                      className="iconDetails"
+                    ></Image>
+
+                    <div className="servicePra">
+                      <p>Service Provider Capital Portfolio Companies </p>
+                      <div className="serviceDiv">
+                        178 Number of Organizations • $5.5B Total Funding Amount
+                        • 1,741 Number of Investors
+                      </div>
+                      <div className="trackDiv">
+                        <Button className="track-btn">
+                          <i class="fa fa-bolt logo"></i>TRACK
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div className="container2">
+                    <Image
+                      src={Logo}
+                      width={50}
+                      className="iconDetails"
+                    ></Image>
+
+                    <div className="servicePra">
+                      <p>Micro VC Funded Companies (Top 10K) </p>
+                      <div className="serviceDiv">
+                        9,994 Number of Organizations • $936.2B Total Funding
+                        Amount • 108,372 Number of Inv
+                      </div>
+                      <div className="trackDiv">
+                        <Button className="track-btn">
+                          <i class="fa fa-bolt logo"></i>TRACK
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div className="container2">
+                    <Image
+                      src={Logo}
+                      width={50}
+                      className="iconDetails"
+                    ></Image>
+
+                    <div className="servicePra">
+                      <p>Great Lakes Early Stage Companies </p>
+                      <div className="serviceDiv">
+                        970 Number of Organizations • $18.3B Total Funding
+                        Amount • 4,384 Number of Investors
+                      </div>
+                      <div className="trackDiv">
+                        <Button className="track-btn">
+                          <i class="fa fa-bolt logo"></i>TRACK
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                </Card>
               </div>
-            </Card>
-          </div>
-        </div>
+            </div>
+          </Col>
+        </Row>
+
         <div className="Box">
           <div className="Container">
             <Row className="footerRow">
               <Col className="footerCol">
-                <i class="fab fa-facebook-square"></i>
+                {/* <i class="fab fa-facebook-square"></i> */}
                 <h2 className="footerHeading">crunchbase</h2>
                 <div className="footerDiv">Stay Connected </div>
                 <a className="footerDiv" href="#">
@@ -273,42 +374,4 @@ export default class Farm extends Component {
       </FarmStyle>
     );
   }
-}
-
-{
-  /* <div className="topBar-section">
-<div className="topBar-img">
-  <Image width={100} src="../../Image/farm.png"></Image>
-</div>
-<div className="topBar-first">
-  <div className="topBar-first-heading">
-    <div>
-      <BuildOutlined className="icon" />
-      <span className="OrganizationDiv">ORGANIZATION</span>
-      <div>
-        <h1 className="topBar-header">FarmLead</h1>
-      </div>
-    </div>
-    <div className="TopBar-side">
-      <Button className="topBar-btn">
-        <i class="fa fa-bolt"></i>Connect To CRM
-      </Button>
-
-      <span>
-        <Button className="SaveBtn">SAVE</Button>
-      </span>
-      <span className="dotSpan">:</span>
-    </div>
-  </div>
-  <div>
-    <Tabs type="card">
-      <TabPane tab="Summary" key="1"></TabPane>
-      <TabPane tab="Financials" key="2"></TabPane>
-      <TabPane tab="People" key="3"></TabPane>
-      <TabPane tab="Technology" key="4"></TabPane>
-      <TabPane tab="Signals & News" key="5"></TabPane>
-    </Tabs>
-  </div>
-</div>
-</div> */
 }

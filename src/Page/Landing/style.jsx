@@ -54,6 +54,8 @@ const FarmStyle = styled.div`
   .BtnTry {
     background: #f5a623;
     border: none;
+    font-weight:500;
+    letter-spacing:2px;
   }
   .BtnLog {
     background: #183444;
@@ -93,16 +95,30 @@ const FarmStyle = styled.div`
   .topBar-header {
     font-size: 2rem;
     font-weight: 500;
+
   }
   .topBar-btn {
     border-color: #f5a623;
-    border-radius: 10px;
+    border-radius: 7px;
     margin-right: 10px;
+    letter-spacing:2px; 
+    font-weight:500;
+  }
+  .logo{
+    padding-right:4px;
+    color:#F5A623;
+  }
+  .iconPlus{
+    padding-right:6px;
   }
   .TopBar-side {
     margin-right: 8rem;
   }
+.TopBar-tab{
 
+  font-weight:500;
+  
+}
   .ant-tabs-nav {
     margin: -2px !important;
   }
@@ -136,6 +152,9 @@ const FarmStyle = styled.div`
     border-left: 1px solid #e5e4e2;
     height: 25rem;
   }
+  .iconNews{
+    padding-right:5px;
+  }
   .divider {
     border: none;
     height: 20px;
@@ -161,19 +180,78 @@ const FarmStyle = styled.div`
   }
   .dotSpan {
     font-weight: 700;
-    padding-left: 16px;
+    padding-left: 16px; 
     font-size: 2rem;
+  }
+  .middleCard{
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .topNews{
+    font-size:27px; 
   }
   //middle
 
   .middle-span {
     display: flex;
   }
+
+  .cardShadow{
+    margin:1rem;
+   box-shadow:-1px 8px 10px -9px #333;
+    border: 1px solid #e5e4e2;
+  border-radius:5px;
+    border-top-style:none;
+    font-weight:600;
+  }
+  .bottomeDiv{
+    margin-top:-8px;
+  }
+
+
+
   //comapany
 
   .company-section {
     margin-top: 2rem;
+    margin-bottom:2rem;
   }
+
+.container2{
+  width:100%;
+	height:auto;
+	padding:1%;
+}
+
+.iconDetails{
+  margin-left:2%;
+  float:left; 
+  height:40px;topBar-btn
+  width:40px;	
+}
+
+.servicePra{
+  margin-left:60px;
+  margin-top:-39px;
+}
+
+.serviceDiv{
+  float:left;
+  margin-top: -13px;
+}
+.trackDiv{
+  float:right;
+  font-size:0.6em;
+}
+.track-btn{
+ 
+    border:none;
+    margin-top:-50px;
+    letter-spacing:2px; 
+    font-weight:500;
+}
+
 
   //footer
 

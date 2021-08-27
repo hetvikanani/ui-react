@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Row, Col, Input, Button, Menu } from "../../components";
+// import { FarmStyle } from "./style";
 
 export default class Navbar extends Component {
   render() {
     return (
+      // <FarmStyle>
       <div className="navbar">
         <Row className="RowNav">
           <Col span={4}>
@@ -14,8 +16,7 @@ export default class Navbar extends Component {
           </Col>
           <Col span={5}>
             <Menu
-              // defaultSelectedKeys={["1"]}
-              // defaultOpenKeys={["sub1"]}
+              
               mode="inline"
               className="advanceSearch"
               subMenu={true}
@@ -29,12 +30,12 @@ export default class Navbar extends Component {
             />
           </Col>
           <Col span={3}>
-            <Button className="BtnTry">TRY FOR FREE</Button>
+            
+            <Button className="BtnTry"><i class="fa fa-bolt" style={{paddingRight:"4px"}}></i>TRY PRO FREE</Button>
           </Col>
           <Col span={2}>
             <Menu
-              // defaultSelectedKeys={["1"]}
-              // defaultOpenKeys={["sub1"]}
+            
               mode="inline"
               className="resource"
               subMenu={true}
@@ -52,6 +53,7 @@ export default class Navbar extends Component {
           </Col>
         </Row>
       </div>
+      // </FarmStyle>
     );
   }
 }
