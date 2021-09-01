@@ -14,7 +14,7 @@ export default class Navbar extends Component {
           <Col span={8}>
             <Input placeholder="Search CrunchBase" />
           </Col>
-          <Col span={5}>
+          <Col span={4}>
             <Menu
               
               mode="inline"
@@ -29,7 +29,7 @@ export default class Navbar extends Component {
               ]}
             />
           </Col>
-          <Col span={3}>
+          <Col span={4}>
             
             <Button className="BtnTry"><i class="fa fa-bolt" style={{paddingRight:"4px"}}></i>TRY PRO FREE</Button>
           </Col>

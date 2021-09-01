@@ -32,9 +32,22 @@ export default class Farm extends Component {
         <Navbar />
 
         <div className={`${stick ? "topBar-section" : "jadu"}`}>
-          <div className="topBar-img">
-            <Image src={Logo}></Image>
-          </div>
+
+         
+          <div>
+                  {stick ? (
+                    <div className="topBar-img">
+                    <Image src={Logo}></Image>
+                  </div>
+                  ) : (
+                    <div className="small-img">
+                    <Image src={Logo}></Image>
+                  </div>
+                  )}
+                </div>
+
+
+
           <div className="topBar-first">
             <div className={`${!stick ? "topBar-first-heading" : ""}`}>
               <div>
@@ -48,7 +61,7 @@ export default class Farm extends Component {
                   {stick ? (
                     <h1 className="topBar-header">FarmLead</h1>
                   ) : (
-                    <h3>FarmLead</h3>
+                    <h3 className="small-header">FarmLead</h3>
                   )}
                 </div>
               </div>
@@ -70,7 +83,7 @@ export default class Farm extends Component {
                 className="TopBar-tab"
                 type="card"
                 tabOptions={[
-                  { key: "1", tab: "Summary" },
+                  { key: "1", tab: "Summary" }, 
                   { key: "2", tab: "Financials" },
                   { key: "3", tab: "People" },
                   { key: "4", tab: "Technology" },
@@ -82,11 +95,10 @@ export default class Farm extends Component {
           </div>
         </div>
         <Row gutter={24} className="aboutRow">
-          <Col span={7}>
+          <Col span={8}>
             <Card className="middleCard">
               <h1>
-                {" "}
-                <BuildOutlined style={{ paddingRight: "9px" }} />
+                 <BuildOutlined style={{ paddingRight: "9px" }} />
                 About
               </h1>
               <p>
@@ -116,18 +128,42 @@ export default class Farm extends Component {
             </Card>
           </Col>
           <div className="verticalLine"></div>
-          <Col span={8}>
-            <Card style={{ width: 400 }}>
+          <Col span={7}>
+          <Card className="middleCard">
               <h1>
-                {" "}
-                <i class="far fa-newspaper" style={{ paddingRight: "9px" }}></i>
+               
+              <i class="far fa-file-alt"  style={{ paddingRight: "9px" }}></i>
                 Highlights
               </h1>
+              <p>
+                FarmLead is North America's grain marketplace. Changing the way
+                farmers sell grain.
+              </p>
+
+              <p>
+                <i class="fas fa-map-marker-alt">Ottawa, Ontario, Canada</i>
+              </p>
+
+              <p>
+                <i class="fas fa-user-friends"></i>11-50
+              </p>
+              <p>
+                <i class="fas fa-dollar-sign"></i>Series
+              </p>
+              <p>
+                <i class="fas fa-flag"></i>Private
+              </p>
+              <p>
+                <i class="fas fa-globe-asia"></i>FarmLead.com
+              </p>
+              <p>
+                <i class="far fa-chart-bar"></i>25,679
+              </p>
             </Card>
           </Col>
           <div className="verticalLine"></div>
           <Col span={8}>
-            <Card>
+            <Card className="middleCar">
               <h1 className="topNews">
                 <i
                   class="fas fa-network-wired"
@@ -164,8 +200,7 @@ export default class Farm extends Component {
         <Divider className="divider" />
         <Row gutter={24}>
           <Col span={16}>
-            {/* <div className="middle-section"> */}
-              {/* <div className="middle-header"> */}
+           
                 <Card className="cardShadow">
                   <h1>Details</h1>
                   <p>Industries</p>
@@ -203,8 +238,7 @@ export default class Farm extends Component {
                     </p>
                   </p>
                 </Card>
-              {/* </div> */}
-            {/* </div> */}
+            
           </Col>
           <Col span={8}></Col>
         </Row>
@@ -212,7 +246,7 @@ export default class Farm extends Component {
           <Col span={16}>
             <div className="company-section">
               <div className="middle-header">
-                <Card>
+                <Card className="cardShadow">
                   <h1>Lists Featuring This Company</h1>
 
                   <div className="container2">
@@ -226,7 +260,7 @@ export default class Farm extends Component {
                       <p>Service Provider Capital Portfolio Companies </p>
                       <div className="serviceDiv">
                         178 Number of Organizations • $5.5B Total Funding Amount
-                        • 1,741 Number of Investors
+                        • 1,741 Number of invest
                       </div>
                       <div className="trackDiv">
                         <Button className="track-btn">
@@ -247,7 +281,7 @@ export default class Farm extends Component {
                       <p>Micro VC Funded Companies (Top 10K) </p>
                       <div className="serviceDiv">
                         9,994 Number of Organizations • $936.2B Total Funding
-                        Amount • 108,372 Number of Inv
+                        Amount • 108,372 Number of
                       </div>
                       <div className="trackDiv">
                         <Button className="track-btn">
@@ -268,7 +302,7 @@ export default class Farm extends Component {
                       <p>Great Lakes Early Stage Companies </p>
                       <div className="serviceDiv">
                         970 Number of Organizations • $18.3B Total Funding
-                        Amount • 4,384 Number of Investors
+                        Amount • 4,384 Number of 
                       </div>
                       <div className="trackDiv">
                         <Button className="track-btn">

@@ -81,7 +81,15 @@ const FarmStyle = styled.div`
     border: white;
   }
   .topBar-img {
-    width: 10%;
+    width: 80%;
+    pointer-events: none;
+  }
+
+  .small-img{
+    width:30%; 
+    margin-left: 10px;
+    pointer-events: none;
+
   }
   .topBar-first {
     width: 90%;
@@ -96,6 +104,10 @@ const FarmStyle = styled.div`
     font-size: 2rem;
     font-weight: 500;
 
+  }
+  .small-header{
+    font-size: 25px;
+    margin-left: -90px;
   }
   .topBar-btn {
     border-color: #f5a623;
@@ -115,7 +127,6 @@ const FarmStyle = styled.div`
     margin-right: 8rem;
   }
 .TopBar-tab{
-
   font-weight:500;
   
 }
@@ -129,17 +140,32 @@ const FarmStyle = styled.div`
     margin: 0 2rem !important;
     background-color: #e9f0ff !important;
     border: #e9f0ff !important;
+ }
+
+  .ant-tabs-tab:hover{
+    background-color:#cccccc !important;
+    color:black !important;
   }
 
   .ant-tabs-tab-active {
     border-bottom: none;
     border-top-left-radius: 10px !important;
     border-top-right-radius: 10px !important;
-    background-color: white !important;
+    background-color: #e5e5e5 !important;
+   
+  }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: black;
   }
 
   .OrganizationDiv {
     padding: 0.5rem;
+  }
+  .ant-menu-submenu-arrow{
+    padding-top: 6px;
+  }
+  .ant-menu-submenu-arrow{
+    margin-right: 8px;
   }
 
   //about
