@@ -2,28 +2,26 @@ import React, { Component } from "react";
 import { DashboardStyle } from "./style";
 import { Row, Col, Button, Card, Input } from "../../components";
 
-const { TextArea } = Input;
-
 class Dashboard extends Component {
   render() {
     return (
       <DashboardStyle>
         <div className="mainDiv">
-          <Row gutter={24}>
-            <Col span={12}>
+          <Row>
+            <Col xs={24} sm={24} md={{ span: 12 }} lg={{ span: 12 }}>
               <Card className="cardShadow">
                 <h3>Contact Us</h3>
                 <div className="divCard1">
                   <Input className="inputCard" placeholder="Full Name" />
                   <Input className="inputCard" placeholder="Email Address" />
                 </div>
-                <Input textArea={true} placeholder="Message" rows={4}></Input>
+                <Input row={4} placeholder="Message"></Input>
                 <div className="btnDiv">
                   <Button className="btnCard1">Send Message</Button>
                 </div>
               </Card>
             </Col>
-            <Col span={12}>
+            <Col xs={24} sm={24} md={12} lg={12}>
               <Card className="cardShadow">
                 <h3>Head Office</h3>
                 <div className="divCard2">
@@ -63,72 +61,80 @@ class Dashboard extends Component {
               </Card>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <Card className="card3Shadow">
-                <Row>
-                  <Col>
-                    <h3>Our Branches</h3>
-                  </Col>
-                  <div className="inputDiv">
-                  <Input placeholder="Search" className="inputCard3" ></Input>
-                 </div>
-                
-                </Row>
+          <div>
+            <Card className="card3Shadow">
+              <div className="inputDiv">
+                <h3>Our Branches</h3>
 
-                <Row gutter={24}>
-                  <Col span={4} className="footerCol">
-                    <div className="footerDiv2">Surat</div>
-                    <p>
-                      Broadway Business Centre,
-                      <br />
-                      3rd Floor, Netaji Rd,
-                      <br />
-                      Elisbridge, Ahmedabad,
-                      <br />
-                      Gujarat 380006
-                    </p>{" "}
-                  </Col>
-                  <Col span={4} className="footerCol">
-                    <div className="footerDiv2">Vadodara </div>
-                    <p>
-                      Broadway Business Centre,
-                      <br />
-                      3rd Floor, Netaji Rd,
-                      <br />
-                      Elisbridge, Ahmedabad,
-                      <br />
-                      Gujarat 380006
-                    </p>{" "}
-                  </Col>
-                  <Col span={4} className="footerCol">
-                    <div className="footerDiv2">Mumbai</div>
-                    <p>
-                      Broadway Business Centre,
-                      <br />
-                      3rd Floor, Netaji Rd,
-                      <br />
-                      Elisbridge, Ahmedabad,
-                      <br />
-                      Gujarat 380006
-                    </p>{" "}
-                  </Col>
-                  <Col span={4} className="footerCol">
-                    <div className="footerDiv2">U.S.A</div>
-                    <p>
-                      Broadway Business Centre,
-                      <br />
-                      3rd Floor, Netaji Rd,
-                      <br />
-                      Elisbridge, Ahmedabad,
-                      <br />
-                      Gujarat 380006
-                    </p>{" "}
-                  </Col>
-                </Row>
-              </Card>
-            </Col>
-          </Row>
+                <div>
+                  <Input placeholder="Search"></Input>
+                </div>
+              </div>
+
+              <Row gutter={24}>
+                <Col
+                  span={{ xs: 12, sm: 12, md: 6, lg: 6 }}
+                  className="footerCol"
+                >
+                  <div className="footerDiv2">Surat</div>
+                  <p>
+                    Broadway Business Centre,
+                    <br />
+                    3rd Floor, Netaji Rd,
+                    <br />
+                    Elisbridge, Ahmedabad,
+                    <br />
+                    Gujarat 380006
+                  </p>
+                </Col>
+                <Col
+                  span={{ xs: 12, sm: 12, md: 6, lg: 6 }}
+                  className="footerCol"
+                >
+                  <div className="footerDiv2">Vadodara </div>
+                  <p>
+                    Broadway Business Centre,
+                    <br />
+                    3rd Floor, Netaji Rd,
+                    <br />
+                    Elisbridge, Ahmedabad,
+                    <br />
+                    Gujarat 380006
+                  </p>
+                </Col>
+                <Col
+                  span={{ xs: 12, sm: 12, md: 6, lg: 6 }}
+                  className="footerCol"
+                >
+                  <div className="footerDiv2">Mumbai</div>
+                  <p>
+                    Broadway Business Centre,
+                    <br />
+                    3rd Floor, Netaji Rd,
+                    <br />
+                    Elisbridge, Ahmedabad,
+                    <br />
+                    Gujarat 380006
+                  </p>
+                </Col>
+                <Col
+                  span={{ xs: 12, sm: 12, md: 6, lg: 6 }}
+                  className="footerCol"
+                >
+                  <div className="footerDiv2">U.S.A</div>
+                  <p>
+                    Broadway Business Centre,
+                    <br />
+                    3rd Floor, Netaji Rd,
+                    <br />
+                    Elisbridge, Ahmedabad,
+                    <br />
+                    Gujarat 380006
+                  </p>
+                </Col>
+              </Row>
+            </Card>
+          </div>
         </div>
       </DashboardStyle>
     );
