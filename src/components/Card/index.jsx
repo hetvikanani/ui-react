@@ -3,10 +3,15 @@ import { Card } from "antd";
 
 export default class index extends Component {
   render() {
-    const { style, className, children ,cover} = this.props;
+    const { style, className, children, cover, hoverable } = this.props;
 
     return (
-      <Card style={style} className={className} cover={cover}>
+      <Card
+        hoverable={hoverable}
+        style={style}
+        className={className}
+        cover={cover}
+      >
         {children}
       </Card>
     );

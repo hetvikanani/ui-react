@@ -10,21 +10,20 @@ import Nbpl from "../../images/video1.webp";
 import Vizman from "../../images/video2.webp";
 import IPO from "../../images/video3.webp";
 
-
 class Blog extends Component {
   render() {
     return (
       <BlogStyle>
         <div className="mainDiv">
-          <Row>
-            <Col xl={8} sm={8} md={8} lg={16} xl={16}>
+          <Row gutter={24}>
+            <Col sm={8} md={8} lg={16} xl={16}>
               <Card className="mainCard" style={{ width: 800 }}>
                 <h2>Our Blog</h2>
-                <Row>
-                  <Col lg={11} xl={11}>
+                <Row gutter={24}>
+                  <Col lg={12} xl={12}>
                     <Card
+                      hoverable={true}
                       className="parentCard"
-                      style={{ width: 300 }}
                       cover={<img src={Blog1}></img>}
                     >
                       <h3>This is a Standard post with a Youtube Video</h3>
@@ -43,10 +42,10 @@ class Blog extends Component {
                       <Button className="button">Read More</Button>
                     </Card>
                   </Col>
-                  <Col  >
+                  <Col lg={12} xl={12}>
                     <Card
+                      hoverable={true}
                       className="parentCard"
-                      style={{ width: 300 }}
                       cover={<img src={Blog2}></img>}
                     >
                       <h3>This is a Standard post with a Youtube Video</h3>
@@ -67,11 +66,11 @@ class Blog extends Component {
                   </Col>
                 </Row>
                 <br />
-                <Row>
-                  <Col lg={11} xl={11}>
+                <Row gutter={24}>
+                  <Col lg={12} xl={12}>
                     <Card
+                      hoverable={true}
                       className="parentCard"
-                      style={{ width: 300 }}
                       cover={<img src={Blog3}></img>}
                     >
                       <h3>This is a Standard post with a Youtube Video</h3>
@@ -90,10 +89,10 @@ class Blog extends Component {
                       <Button className="button">Read More</Button>
                     </Card>
                   </Col>
-                  <Col  >
+                  <Col lg={12} xl={12}>
                     <Card
+                      hoverable={true}
                       className="parentCard"
-                      style={{ width: 300 }}
                       cover={<img src={Blog4}></img>}
                     >
                       <h3>This is a Standard post with a Youtube Video</h3>
@@ -115,26 +114,38 @@ class Blog extends Component {
                 </Row>
               </Card>
             </Col>
-            <Col  lg={8} xl={8}>
-              <Card className="mainCard">
+            <Col lg={8} xl={8}>
+              <Card className="mainCard ">
                 <h2>Our Videos</h2>
+                <div className="scroll-bar">
+                  <Card
+                    hoverable={true}
+                    className="videoCard1"
+                    style={{ width: 310 }}
+                    cover={<img src={Nbpl}></img>}
+                  ></Card>
+                  <br />
+                  <Card
+                    hoverable={true}
+                    className="videoCard1"
+                    style={{ width: 310 }}
+                    cover={<img src={Vizman}></img>}
+                  ></Card>
+                  <br />
 
-                <Card
-                  className="videoCard1"
-                  style={{ width: 350 }}
-                  cover={<img src={Nbpl}></img>}
-                ></Card>
-                <br/>
-                <Card
-                  className="videoCard1"
-                  style={{ width: 350 }}
-                  cover={<img src={Vizman}></img>}
-                ></Card><br/>
-                 <Card
-                  className="videoCard1"
-                  style={{ width: 350 }}
-                  cover={<img src={IPO}></img>}
-                ></Card>
+                  <Card
+                    hoverable={true}
+                    className="videoCard1"
+                    style={{ width: 310 }}
+                    cover={<img src={IPO}></img>}
+                  ></Card>
+                    {/* <Card
+                      hoverable={true}
+                      className="videoCard1"
+                      style={{ width: 310 }}
+                      cover={<img src={IPO}></img>}
+                    ></Card> */}
+                </div>
               </Card>
             </Col>
           </Row>
