@@ -1,9 +1,8 @@
 import Button from "./Button";
 import Input from "./Input";
-import Row from "./Row";
-import Col from "./Col";
 import Menu from "./Menu";
 import Card from "./Card";
 import Tabs from "./Tab";
+import Label from "./Label";
 
-export { Button, Input, Row, Col, Menu, Card, Tabs };
+export { Button, Input,  Menu, Card, Tabs,Label };

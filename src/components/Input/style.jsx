@@ -30,7 +30,7 @@ const FormWrapper = styled.div`
     margin: 0;
     -webkit-appearance: none;
     background: #fff;
-    border: 0;
+    border: 1;
     height: 34px;
     font-size: 15px;
     font-weight: 400;
@@ -52,7 +52,7 @@ const FormWrapper = styled.div`
   }
   .ant-input,
   .ant-input-password {
-    border: 0;
+    border: 1;
     box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     color: #b5b5b5;

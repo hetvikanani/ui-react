@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { DashboardStyle } from "./style";
-import { Row, Col, Button, Card, Input } from "../../components";
+import { Row, Col } from "antd";
+import { Button, Card, Input } from "../../components";
 
 class Dashboard extends Component {
   render() {
@@ -8,7 +9,7 @@ class Dashboard extends Component {
       <DashboardStyle>
         <div className="mainDiv">
           <Row>
-            <Col xs={24} sm={24} md={{ span: 12 }} lg={{ span: 12 }}>
+            <Col xs={24} sm={24} md={12} lg={12} xl={12}>
               <Card className="cardShadow">
                 <h3>Contact Us</h3>
                 <div className="divCard1">
@@ -21,14 +22,14 @@ class Dashboard extends Component {
                 </div>
               </Card>
             </Col>
-            <Col xs={24} sm={24} md={12} lg={12}>
+            <Col xs={24} sm={24} md={12} lg={12} xl={12}>
               <Card className="cardShadow">
                 <h3>Head Office</h3>
                 <div className="divCard2">
                   <div className="iconDiv">
                     <i class="fas fa-map-marker-alt icon"></i>
                   </div>
-                  <div className="pragraphDiv">
+                  <div>
                     <p>
                       Broadway Business Centre,
                       <br />
@@ -36,25 +37,23 @@ class Dashboard extends Component {
                       <br />
                       Elisbridge, Ahmedabad,
                       <br />
-                      Gujarat 380006{" "}
-                    </p>{" "}
+                      Gujarat 380006
+                    </p>
                   </div>
                 </div>
                 <div className="divCard2">
                   <div className="iconDiv">
-                    {" "}
                     <i class="fas fa-phone-alt icon"></i>
                   </div>
-                  <div className="pragraphDiv">
-                    <p>+91 79264 46782</p>{" "}
+                  <div>
+                    <p>+91 79264 46782</p>
                   </div>
                 </div>
                 <div className="divCard2">
                   <div className="iconDiv">
-                    {" "}
                     <i class="fas fa-envelope icon"></i>
                   </div>
-                  <div className="pragraphDiv">
+                  <div>
                     <p>info@naapbooks.com</p>
                   </div>
                 </div>
@@ -63,17 +62,21 @@ class Dashboard extends Component {
           </Row>
           <div>
             <Card className="card3Shadow">
-              <div className="inputDiv">
+              <div className="headerDiv">
                 <h3>Our Branches</h3>
 
-                <div>
+                <div className="searchInput">
                   <Input placeholder="Search"></Input>
                 </div>
               </div>
 
-              <Row gutter={24}>
+              <Row>
                 <Col
-                  span={{ xs: 12, sm: 12, md: 6, lg: 6 }}
+                  xs={24}
+                  sm={12}
+                  md={12}
+                  lg={6}
+                  xl={6}
                   className="footerCol"
                 >
                   <div className="footerDiv2">Surat</div>
@@ -88,7 +91,11 @@ class Dashboard extends Component {
                   </p>
                 </Col>
                 <Col
-                  span={{ xs: 12, sm: 12, md: 6, lg: 6 }}
+                  xs={24}
+                  sm={12}
+                  md={12}
+                  lg={6}
+                  xl={6}
                   className="footerCol"
                 >
                   <div className="footerDiv2">Vadodara </div>
@@ -103,7 +110,11 @@ class Dashboard extends Component {
                   </p>
                 </Col>
                 <Col
-                  span={{ xs: 12, sm: 12, md: 6, lg: 6 }}
+                  xs={24}
+                  sm={12}
+                  md={12}
+                  lg={6}
+                  xl={6}
                   className="footerCol"
                 >
                   <div className="footerDiv2">Mumbai</div>
@@ -118,7 +129,11 @@ class Dashboard extends Component {
                   </p>
                 </Col>
                 <Col
-                  span={{ xs: 12, sm: 12, md: 6, lg: 6 }}
+                  xs={24}
+                  sm={12}
+                  md={12}
+                  lg={6}
+                  xl={6}
                   className="footerCol"
                 >
                   <div className="footerDiv2">U.S.A</div>

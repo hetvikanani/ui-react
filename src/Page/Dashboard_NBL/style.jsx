@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { size } from "../../components/Responsible/index";
+
 const DashboardStyle = styled.div`
   .mainDiv {
     background: #f8f9fa;
@@ -35,9 +37,7 @@ const DashboardStyle = styled.div`
             color: #16548b;
           }
         }
-        .pragraphDiv {
-          width: 94%;
-        }
+       
       }
     }
     .card3Shadow {
@@ -46,9 +46,12 @@ const DashboardStyle = styled.div`
       border: 1px solid #e5e4e2;
       box-shadow: 0px 0px 50px rgb(0 0 0 / 20%);
 
-      .inputDiv {
+      .headerDiv {
         display: flex;
         justify-content: space-between;
+
+       
+        }
       }
       .footerCol {
         display: flex;
@@ -63,6 +66,11 @@ const DashboardStyle = styled.div`
       }
     }
   }
+  @media ${size["tablet-sm-max"]} {
+    .headerDiv {
+      display: block !important;
+      width: 45%;
+    }
 `;
 
 export { DashboardStyle };
