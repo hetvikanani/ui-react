@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import { size } from "../../components/Responsible/index";
 
-const DashboardStyle = styled.div`
+const ContactUsStyle = styled.div`
   .mainDiv {
     background: #f8f9fa;
+
+    ul {
+      list-style-type: none;
+    }
 
     .cardShadow {
       height: 90%;
@@ -11,14 +15,21 @@ const DashboardStyle = styled.div`
       border: 1px solid #e5e4e2;
       box-shadow: 0px 0px 50px rgb(0 0 0 / 20%);
 
-      .divCard1 {
+      .divCard {
         display: flex;
         justify-content: space-between;
 
         .inputCard {
-          margin: 1rem 1rem 1rem 0;
+          margin: 10px 10px 15px 6px;
         }
       }
+      // .textareaDiv {
+      //   margin: 10px 10px 15px 6px;
+      // }
+      .empty {
+        margin: 10px 2px 5px 8px;
+      }
+
       .btnDiv {
         float: right;
         margin-top: 1rem;
@@ -28,7 +39,7 @@ const DashboardStyle = styled.div`
           color: white;
         }
       }
-      .divCard2 {
+      .divCardHead {
         display: flex;
 
         .iconDiv {
@@ -37,10 +48,9 @@ const DashboardStyle = styled.div`
             color: #16548b;
           }
         }
-       
       }
     }
-    .card3Shadow {
+    .cardfooterShadow {
       height: 84%;
       margin: 1rem;
       border: 1px solid #e5e4e2;
@@ -49,28 +59,23 @@ const DashboardStyle = styled.div`
       .headerDiv {
         display: flex;
         justify-content: space-between;
-
-       
+        @media ${size["tablet-sm-max"]} {
+          display: block !important;
+          width: 45%;
         }
       }
-      .footerCol {
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-
-        .footerDiv2 {
-          margin-top: 1.8125rem;
-          font-size: 14px;
-          font-weight: 700;
-        }
+    }
+    .footerCol {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      .footerDiv2 {
+        margin-top: 1.8125rem;
+        font-size: 14px;
+        font-weight: 700;
       }
     }
   }
-  @media ${size["tablet-sm-max"]} {
-    .headerDiv {
-      display: block !important;
-      width: 45%;
-    }
 `;
 
-export { DashboardStyle };
+export { ContactUsStyle };
