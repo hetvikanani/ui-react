@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import { size } from "../../components/Responsible/index";
+
 
 const SupportStyle = styled.div`
   .mainDiv {
@@ -8,7 +8,7 @@ const SupportStyle = styled.div`
     max-width: 415px;
     padding-top: 5%;
 
-    .cardShadow {
+    .DivShadow {
       border-radius: 10px;
       border: 1px solid #e5e4e2;
 

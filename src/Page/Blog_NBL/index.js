@@ -25,16 +25,16 @@ class Blog extends Component {
                     <Card
                       hoverable={true}
                       className="parentCard"
-                      cover={<img src={Blog1}></img>}
+                      cover={<img src={Blog1} className="imgAnimation"></img>}
                     >
                       <h3>This is a Standard post with a Youtube Video</h3>
                       <div className="iconDiv">
                         <p>
-                          <i class="fas fa-calendar-alt icon"></i>20th Aug 2021
+                          <i class="fas fa-calendar-alt iconDate"></i>20th Aug 2021
                           |
                         </p>
                         <p>
-                          <i class="fas fa-comment icon2"></i>Comment
+                          <i class="fas fa-comment iconDate"></i>Comment
                         </p>
                       </div>
                       <p>
@@ -48,16 +48,16 @@ class Blog extends Component {
                     <Card
                       hoverable={true}
                       className="parentCard"
-                      cover={<img src={Blog2}></img>}
+                      cover={<img src={Blog2} className="imgAnimation"></img>}
                     >
                       <h3>This is a Standard post with a Youtube Video</h3>
                       <div className="iconDiv">
                         <p>
-                          <i class="fas fa-calendar-alt icon"></i>20th Aug 2021
+                          <i class="fas fa-calendar-alt iconDate"></i>20th Aug 2021
                           |
                         </p>
                         <p>
-                          <i class="fas fa-comment icon2"></i>Comment
+                          <i class="fas fa-comment iconDate"></i>Comment
                         </p>
                       </div>
                       <p>
@@ -74,16 +74,16 @@ class Blog extends Component {
                     <Card
                       hoverable={true}
                       className="parentCard"
-                      cover={<img src={Blog3}></img>}
+                      cover={<img src={Blog3}  className="imgAnimation"></img>}
                     >
                       <h3>This is a Standard post with a Youtube Video</h3>
                       <div className="iconDiv">
                         <p>
-                          <i class="fas fa-calendar-alt icon"></i>20th Aug 2021
+                          <i class="fas fa-calendar-alt iconDate"></i>20th Aug 2021
                           |
                         </p>
                         <p>
-                          <i class="fas fa-comment icon2"></i>Comment
+                          <i class="fas fa-comment iconDate"></i>Comment
                         </p>
                       </div>
                       <p>
@@ -97,16 +97,16 @@ class Blog extends Component {
                     <Card
                       hoverable={true}
                       className="parentCard"
-                      cover={<img src={Blog4}></img>}
+                      cover={<img src={Blog4}  className="imgAnimation"></img>}
                     >
                       <h3>This is a Standard post with a Youtube Video</h3>
                       <div className="iconDiv">
                         <p>
-                          <i class="fas fa-calendar-alt icon"></i>20th Aug 2021
+                          <i class="fas fa-calendar-alt iconDate"></i>20th Aug 2021
                           |
                         </p>
                         <p>
-                          <i class="fas fa-comment icon2"></i>Comment
+                          <i class="fas fa-comment iconDate"></i>Comment
                         </p>
                       </div>
                       <p>
@@ -140,7 +140,6 @@ class Blog extends Component {
                     <br />
                   </Col>
                   <Col>
-                  
                     <Card
                       hoverable={true}
                       className="videoCard1"
@@ -164,33 +163,52 @@ class Blog extends Component {
               <Card className="mainCard">
                 <h2>Know us</h2>
 
-                <div >
+                <div>
                   <Row className="footerDiv">
                     <Col xs={24} sm={24} md={11} lg={5} xl={5}>
-                      <Card
-                        className="videoCard1"
-                        cover={<img src={Blog1}   >
-                       
-                        </img> }
-                      > </Card>
+                    <div class="hoverDiv">
+                        <Card
+                          className="videoCard1"
+                          cover={<img src={Blog1}></img>}
+                        ></Card>
+                        <div className="overlay">
+                          <div className="text">Lorem Ipsum</div>
+                        </div>
+                      </div> 
+                    </Col>
+
+                    <Col xs={24} sm={24} md={11} lg={5} xl={5}>
+                    <div class="hoverDiv">
+                        <Card
+                          className="videoCard1"
+                          cover={<img src={Blog2}></img>}
+                        ></Card>
+                        <div className="overlay">
+                          <div className="text">Lorem Ipsum</div>
+                        </div>
+                      </div>
                     </Col>
                     <Col xs={24} sm={24} md={11} lg={5} xl={5}>
-                      <Card
-                        className="videoCard1"
-                        cover={<img src={Blog2}></img>}
-                      ></Card>
+                    <div class="hoverDiv">
+                        <Card
+                          className="videoCard1"
+                          cover={<img src={Blog3}></img>}
+                        ></Card>
+                        <div className="overlay">
+                          <div className="text">Lorem Ipsum</div>
+                        </div>
+                      </div>
                     </Col>
                     <Col xs={24} sm={24} md={11} lg={5} xl={5}>
-                      <Card
-                        className="videoCard1"
-                        cover={<img src={Blog3}></img>}
-                      ></Card>
-                    </Col>
-                    <Col xs={24} sm={24} md={11} lg={5} xl={5}>
-                      <Card
-                        className="videoCard1"
-                        cover={<img src={Blog4}></img>}
-                      ></Card>
+                    <div class="hoverDiv">
+                        <Card
+                          className="videoCard1"
+                          cover={<img src={Blog4}></img>}
+                        ></Card>
+                        <div className="overlay">
+                          <div className="text">Lorem Ipsum</div>
+                        </div>
+                      </div>
                     </Col>
                   </Row>
                 </div>
