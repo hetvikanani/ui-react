@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CollapseStyle = styled.div`
+const StyleContainer = styled.div`
   .ant-collapse {
     background-color: #FFFFFF;
     .ant-card-body {
@@ -20,4 +20,4 @@ const CollapseStyle = styled.div`
   }
 `;
 
-export { CollapseStyle };
+export { StyleContainer };

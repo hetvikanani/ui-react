@@ -11,8 +11,13 @@ const panelData = [
   },
   {
     key: "2",
-    header: "dummy",
+    header: "Financial Details",
     body: "dummy",
+  },
+  {
+    key: "2",
+    header: "Contact Details",
+    body: "Contact Details",
   },
 ];
 class Profile extends Component {

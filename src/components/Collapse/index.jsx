@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Collapse } from "antd";
-import { CollapseStyle } from "./style";
+import { StyleContainer } from "./style.jsx";
 
 const { Panel } = Collapse;
 
@@ -8,8 +8,8 @@ export default class index extends Component {
   render() {
     const { panelData } = this.props;
     return (
-      <CollapseStyle>
-        <Collapse accordion>
+      <StyleContainer>
+        <Collapse expandIconPosition="right" accordion>
           {panelData &&
             panelData.map((data) => (
               <Panel header={data.header} key={data.key}>
@@ -17,7 +17,7 @@ export default class index extends Component {
               </Panel>
             ))}
         </Collapse>
-      </CollapseStyle>
+      </StyleContainer>
     );
   }
 }
