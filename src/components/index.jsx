@@ -4,5 +4,6 @@ import Menu from "./Menu";
 import Card from "./Card";
 import Tabs from "./Tab";
 import Label from "./Label";
+import Collapse from "./Collapse";
 
-export { Button, Input,  Menu, Card, Tabs,Label };
+export { Button, Input, Menu, Card, Tabs, Label, Collapse };
