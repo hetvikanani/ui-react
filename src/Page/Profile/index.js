@@ -15,7 +15,7 @@ const panelData = [
     body: "dummy",
   },
   {
-    key: "2",
+    key: "3",
     header: "Contact Details",
     body: "Contact Details",
   },

@@ -19,8 +19,7 @@ export default class BasicDetails extends Component {
             <Label title="Name"></Label>
             <Input placeholder="Enter Your Name"></Input>
           </Col>
-        </Row>
-        <Row gutter={24}>
+
           <Col xs={24} sm={24} md={12} lg={8} xl={8}>
             <Label title="Name"></Label>
             <Input placeholder="Enter Your Name"></Input>
@@ -33,8 +32,7 @@ export default class BasicDetails extends Component {
             <Label title="Name"></Label>
             <Input placeholder="Enter Your Name"></Input>
           </Col>
-        </Row>
-        <Row gutter={24}>
+
           <Col xs={24} sm={24} md={12} lg={8} xl={8}>
             <Label title="Name"></Label>
             <Input placeholder="Enter Your Name"></Input>
