@@ -12,7 +12,7 @@ export default class index extends Component {
         <Collapse expandIconPosition="right" accordion>
           {panelData &&
             panelData.map((data) => (
-              <Panel header={data.header} key={data.key}>
+              <Panel header={data} key={data.key}>
                 {data.body}
               </Panel>
             ))}
