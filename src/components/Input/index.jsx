@@ -74,6 +74,8 @@ class FormInput extends Component {
       row,
       password,
       max,
+      upload,
+      mobile,
       ...props
     } = this.props;
     let length = max ? max : 45;
@@ -96,6 +98,10 @@ class FormInput extends Component {
             maxLength={length}
             {...props}
           />
+        ) : upload ? (
+          <input type="file"></input>
+        ) : mobile ? (
+          "hello"
         ) : (
           <Input
             size={size}
