@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyleContainer = styled.div`
   .ant-collapse-item {
-    background-color: #5d5dc8;
+    background-color:#16548B;
     border: none;
     margin-bottom: 1.5rem;
     .ant-collapse-header {
