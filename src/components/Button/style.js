@@ -6,7 +6,7 @@ const Button = styled.button`
   color: ${(props) => props.bgcolor.color};
   cursor: pointer;
   border: 0;
-  display: inline-block;
+  // display: inline-block;
   font-family: Roboto;
   position: relative;
   padding: 0 20px;

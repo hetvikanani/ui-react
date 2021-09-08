@@ -5,5 +5,7 @@ import Card from "./Card";
 import Tabs from "./Tab";
 import Label from "./Label";
 import Collapse from "./Collapse/index";
+import Select from "./Select";
+import FileUpload from "./FileUpload"
 
-export { Button, Input, Menu, Card, Tabs, Label, Collapse };
+export { Button, Input, Menu, Card, Tabs, Label, Collapse,Select ,FileUpload};
