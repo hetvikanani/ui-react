@@ -3,10 +3,10 @@ import { FormWrapper } from "./style";
 
 class Label extends Component {
   render() {
-    const { title, className } = this.props;
+    const { title, onClick, className } = this.props;
     return (
-      <FormWrapper>
-        <label className={className}>{title}</label>
+      <FormWrapper onClick={onClick}>
+        <label className={"form-label " + className}>{title}</label>
       </FormWrapper>
     );
   }

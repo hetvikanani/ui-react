@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import  arrowdown from "../../images/arrow-down.svg";
+import { arrowdown } from "components/Images";
 
-import { Theme } from "../theme";
-
+import { Theme } from "App/theme";
 
 const SelectContainer = styled.div`
   height: 2.4em;
@@ -20,7 +19,7 @@ const SelectContainer = styled.div`
       width: -webkit-fill-available;
       border: 1px solid rgba(0, 0, 0, 0.125);
       height: 2.5em;
-      // box-shadow: 0px 0px 7px rgb(0 0 0 / 15%);
+      // box-shadow: 0px 0px 7px rgb(0, 0, 0, .15);
       border-radius: 0px;
       color: #b5b5b5;
       input {

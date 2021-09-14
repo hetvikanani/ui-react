@@ -4,7 +4,7 @@ import { StyleContainer } from "./style.js";
 
 const { Panel } = Collapse;
 
-export default class index extends Component {
+export default class Colla extends Component {
   render() {
     const { panelData } = this.props;
     return (

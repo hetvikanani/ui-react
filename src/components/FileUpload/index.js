@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { message, Upload } from "antd";
-// import { withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class FileUpload extends Component {
   beforeUpload = async (file) => {
@@ -44,6 +44,4 @@ class FileUpload extends Component {
 //   upload: (payload) => dispatch(upload(payload)),
 // });
 
-// export default withRouter(FileUpload);
-export default FileUpload;
-
+export default withRouter(FileUpload);
