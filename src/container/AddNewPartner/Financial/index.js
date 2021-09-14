@@ -6,13 +6,13 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 const UserValidation = Yup.object().shape({
- bankName: Yup.string()
+  bankName: Yup.string()
     .trim()
     .required(" "),
   branchName: Yup.string()
     .trim()
     .required(" "),
- 
+
 
 
 });
@@ -27,10 +27,10 @@ export default class FinancialDetail extends Component {
         branchName: "",
         address: "",
         accountNo: "",
-        ifscCode:"",
-        pincode:'',
-        city:'',
-        state:'',
+        ifscCode: "",
+        pincode: '',
+        city: '',
+        state: '',
       },
     };
   }
@@ -83,11 +83,11 @@ export default class FinancialDetail extends Component {
                               />
                             </div>
                           </Col>
-                         
+
                         </Row>
 
                         <Row gutter={24}>
-                         
+
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
@@ -106,13 +106,74 @@ export default class FinancialDetail extends Component {
                                 }
                               />
                             </div>
+                            <div className="cardDiv">
+
+                              <Label title="Account No :" className="label" />
+                              <Input
+                                onBlur={handleBlur}
+                                name="accountNo"
+                                value={values.accountNo}
+                                handleChange={handleChange}
+                                max={255}
+                                tabIndex="3"
+                                className={
+                                  errors.accountNo && touched.accountNo
+                                    ? "empty"
+                                    : ""
+                                }
+                              />
+                            </div>
                           </Col>
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
                               <Label title="Address :" className="label" />
                               <Input
-                                row={4}
+                                row={6}
+                                onBlur={handleBlur}
+                                name="branchName"
+                                value={values.branchName}
+                                handleChange={handleChange}
+                                max={255}
+                                tabIndex="3"
+                                className={
+                                  errors.branchName && touched.branchName
+                                    ? "empty"
+                                    : ""
+                                }
+                              />
+                            </div>
+                          </Col>
+
+                        </Row>
+
+                        <Row gutter={24}>
+
+                          <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <div className="cardDiv">
+
+                              <Label title="IFSC Code :" className="label" />
+                              <Input
+                                onBlur={handleBlur}
+                                name="ifscCode"
+                                value={values.ifscCode}
+                                handleChange={handleChange}
+                                max={255}
+                                tabIndex="3"
+                                className={
+                                  errors.ifscCode && touched.ifscCode
+                                    ? "empty"
+                                    : ""
+                                }
+                              />
+                            </div>
+                          </Col>
+                          <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <div className="cardDiv">
+
+                              <Label title="Pincode :" className="label" />
+                              <Input
+
                                 onBlur={handleBlur}
                                 name="branchName"
                                 value={values.branchName}
@@ -130,79 +191,62 @@ export default class FinancialDetail extends Component {
 
                         </Row>
                         <Row gutter={24}>
+
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
-                              <Label title="Account No :" className="label" />
+                              <Label title="City :" className="label" />
                               <Input
                                 onBlur={handleBlur}
-                                name="accountNo"
-                                value={values.accountNo}
+                                name="city"
+                                value={values.city}
                                 handleChange={handleChange}
                                 max={255}
-                                tabIndex="1"
+                                tabIndex="3"
                                 className={
-                                  errors.accountNo && touched.accountNo
+                                  errors.city && touched.city
                                     ? "empty"
                                     : ""
                                 }
                               />
                             </div>
                           </Col>
-                         
+                          <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <div className="cardDiv">
+
+                              <Label title="State :" className="label" />
+                              <Input
+
+                                onBlur={handleBlur}
+                                name="state "
+                                value={values.state}
+                                handleChange={handleChange}
+                                max={255}
+                                tabIndex="3"
+                                className={
+                                  errors.state && touched.state
+                                    ? "empty"
+                                    : ""
+                                }
+                              />
+                            </div>
+                          </Col>
+
                         </Row>
-                        <Row gutter={24}>
-                         
-                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                           <div className="cardDiv">
-
-                             <Label title="IFSC Code :" className="label" />
-                             <Input
-                               onBlur={handleBlur}
-                               name="ifscCode"
-                               value={values.ifscCode}
-                               handleChange={handleChange}
-                               max={255}
-                               tabIndex="3"
-                               className={
-                                 errors.ifscCode && touched.ifscCode
-                                   ? "empty"
-                                   : ""
-                               }
-                             />
-                           </div>
-                         </Col>
-                         <Col xs={24} sm={24} md={24} lg={12} xl={12}>
-                           <div className="cardDiv">
-
-                             <Label title="Pincode :" className="label" />
-                             <Input
-                               
-                               onBlur={handleBlur}
-                               name="branchName"
-                               value={values.branchName}
-                               handleChange={handleChange}
-                               max={255}
-                               tabIndex="3"
-                               className={
-                                 errors.branchName && touched.branchName
-                                   ? "empty"
-                                   : ""
-                               }
-                             />
-                           </div>
-                         </Col>
-
-                       </Row>
                       </div>
 
 
                       <div className="btn-div">
-                       
-                        <Button type="submit"
+
+                        <Button type="submit" className="submitBtn"
                           disabled={disable}
                         >
-                          Submit
+                          Previous
+                        </Button>
+                        <Button 
+                          disabled={disable}
+                        >
+                          Next
                         </Button>
                       </div>
                     </Form>

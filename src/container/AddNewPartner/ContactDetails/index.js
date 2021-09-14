@@ -26,8 +26,7 @@ export default class ContactDetail extends Component {
     super();
     this.state = {
       disable: false,
-      check: false,
-      save:false,
+    
 
 
       initialState: [{
@@ -35,11 +34,10 @@ export default class ContactDetail extends Component {
         mobile: "",
         email: "",
         designation: "",
+       
       },]
     };
   }
-
-
 
   increase = () => {
 
@@ -51,10 +49,12 @@ export default class ContactDetail extends Component {
           mobile: "",
           email: "",
           designation: "",
-        }],save:true
+          check: false,
+          save: false,
+        }], save: true
       })
-}
-}
+    }
+  }
 
 
 
@@ -192,8 +192,8 @@ export default class ContactDetail extends Component {
                             disabled={disable}
 
                           >
-                            {this.state.save?"Save":"Submit"}
-                          
+                            {this.state.save ? "Save" : "Submit"}
+
                           </Button>
                         </div>
                       </Form>

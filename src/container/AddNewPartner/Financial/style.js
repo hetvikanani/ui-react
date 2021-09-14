@@ -37,7 +37,11 @@ display: flex;
           
           margin-top:2em;
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-end;
+         
+          .submitBtn{
+            margin-right:3em;
+          }
          }
     
         }
