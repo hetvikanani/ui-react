@@ -18,27 +18,34 @@ display: flex;
         font-weight: 500;
         color: #16548B;
       }
-      .headerCard{
-        color: #16548B;
 
-      }
-     
-        .form-div {
-          .cardDiv {
-            margin-top: 2em;
-            .label{
-              font-size: 15px;
-              font-weight: 700;
-              color: #505458;
+      .boxDiv{
+margin-top:1rem;
+
+        .headerCard{
+          color: #16548B;
+          }
+       
+          .form-div {
+            .cardDiv {
+              margin-top: 2em;
+              .label{
+                font-size: 15px;
+                font-weight: 700;
+                color: #505458;
+              }
             }
           }
-        }
-        .btn-div {
-          
-          margin-top:2em;
-          display: flex;
-          justify-content: space-between;
-         }
+          .btn-div {
+            
+            margin-top:2em;
+            display: flex;
+            justify-content: space-between;
+           }
+
+
+      }
+      
     
         }
   }

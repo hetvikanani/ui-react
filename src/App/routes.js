@@ -18,6 +18,7 @@ import Sales from "container/Sales";
 import SalesAddEdit from "container/SalesAddEdit";
 import Wallet from "container/Wallet";
 import ContactDetail from "container/AddNewPartner/ContactDetails";
+import FinancialDetail from "container/AddNewPartner/Financial";
 
 const routes = [
   {
@@ -111,10 +112,16 @@ const routes = [
     component: Wallet,
   },
   {
-    path: "/admin/contactdetails",
+    path: "/admin/contactdetail",
     exact: true,
     AuthRoute: true,
     component: ContactDetail,
+  },
+  {
+    path: "/admin/financialdetail",
+    exact: true,
+    AuthRoute: true,
+    component: FinancialDetail,
   },
 ];
 const PrivateRoute = ({ component: Component, ...rest }) => {
