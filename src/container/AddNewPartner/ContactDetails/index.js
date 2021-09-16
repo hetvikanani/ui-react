@@ -20,7 +20,7 @@ export default class ContactDetail extends Component {
       initialState: [
         {
           key: uuidv4(),
-          contactName: "dgdfx",
+          contactName: "",
           mobile: "",
           email: "",
           designation: "",
@@ -55,17 +55,9 @@ export default class ContactDetail extends Component {
 
   remove = (key, setFieldValue, handleReset) => {
     const newData = this.state.initialState.filter((data) => data.key !== key);
-    // const { contactName, email, mobile } = this.state.initialState.filter(
-    //   (data) => data.key === key
-    // )[0];
-
     this.setState({ initialState: newData }, () => {
       handleReset();
-      // setFieldValue("contactName", contactName);
-      // setFieldValue("email", email);
-      // setFieldValue("mobile", mobile);
-    });
-    // this.forceUpdate();
+     });
   };
 
   handleSubmit = async (values, { setSubmitting }) => {
@@ -138,10 +130,6 @@ export default class ContactDetail extends Component {
                                   value={values.contactName}
                                   handleChange={handleChange}
                                   onChange={(e) => {
-                                    // setFieldValue(
-                                    //   "contactName",
-                                    //   e.target.value
-                                    // );
                                     let data = [...initialState];
                                     data[index].contactName = e.target.value;
                                     this.setState({ initialState: data });
@@ -223,20 +211,12 @@ export default class ContactDetail extends Component {
                             <Button
                               style={{ marginRight: "2rem" }}
                               onClick={() => {
-                                // const a = handleSubmit();
-                                // if (a) this.increase(data.id);
+                               
                                 validateForm().then((d) => {
                                   if (Object.keys(d).length === 0)
                                     this.increase(data.key);
                                   else handleSubmit();
                                 });
-
-                                // console.log(
-                                //   isInitialValid,
-                                //   isValid,
-                                //   isValidating
-                                // );
-                                // validateForm().then((d) => console.log(d));
                               }}
                             >
                               Add Another
@@ -246,11 +226,6 @@ export default class ContactDetail extends Component {
                             <Button
                               className="removeBtn"
                               onClick={() => {
-                                // handleReset();
-                                // setFieldValue("contactName", null);
-                                // setFieldValue("email", null);
-                                // setFieldValue("mobile", null);
-                                // resetForm({ values: { contactName: "" } });
                                 this.remove(
                                   data.key,
                                   setFieldValue,
