@@ -3,11 +3,10 @@ import { size } from "../../../App/device";
 // import { Theme } from "../../App/theme";
 
 const ContactDetailStyle = styled.div`
-
-display: flex;
+  display: flex;
 
   .container {
-    background: #F8F9FA;
+    background: #f8f9fa;
     height: 100vh;
     overflow-y: auto;
     width: 100%;
@@ -16,43 +15,34 @@ display: flex;
       padding: 2em 1em 1em;
       .header {
         font-weight: 500;
-        color: #16548B;
+        color: #16548b;
       }
 
-      .boxDiv{
-margin-top:1rem;
+      .boxDiv {
+        margin-top: 1rem;
 
-        .headerCard{
-          color: #16548B;
-          }
-       
-          .form-div {
-            .cardDiv {
-              margin-top: 2em;
-              .label{
-                font-size: 15px;
-                font-weight: 700;
-                color: #505458;
-              }
+        .headerCard {
+          color: #16548b;
+        }
+
+        .form-div {
+          .cardDiv {
+            margin-top: 2em;
+            .label {
+              font-size: 15px;
+              font-weight: 700;
+              color: #505458;
             }
           }
-          .btn-div {
-            
-            margin-top:2em;
-            display: flex;
-            justify-content: space-between;
-           }
-
-
-      }
-      
-    
         }
+        .btn-div {
+          margin-top: 2em;
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
   }
-
-
 `;
 
 export { ContactDetailStyle };
-
-
