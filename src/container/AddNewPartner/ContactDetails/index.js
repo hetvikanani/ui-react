@@ -19,8 +19,8 @@ export default class ContactDetail extends Component {
 
       initialState: [
         {
-          id: uuidv4(),
-          contactName: "",
+          key: uuidv4(),
+          contactName: "dgdfx",
           mobile: "",
           email: "",
           designation: "",
@@ -31,9 +31,9 @@ export default class ContactDetail extends Component {
     };
   }
 
-  increase = (id) => {
+  increase = (key) => {
     const newData = this.state.initialState.map((data) => {
-      if (data.id === id) {
+      if (data.key === key) {
         return { ...data, save: true };
       } else return data;
     });
@@ -41,7 +41,7 @@ export default class ContactDetail extends Component {
       initialState: [
         ...newData,
         {
-          id: uuidv4(),
+          key: uuidv4(),
           contactName: "",
           mobile: "",
           email: "",
@@ -53,9 +53,19 @@ export default class ContactDetail extends Component {
     });
   };
 
-  remove = (id) => {
-    const newData = this.state.initialState.filter((data) => data.id !== id);
-    this.setState({ initialState: newData });
+  remove = (key, setFieldValue, handleReset) => {
+    const newData = this.state.initialState.filter((data) => data.key !== key);
+    // const { contactName, email, mobile } = this.state.initialState.filter(
+    //   (data) => data.key === key
+    // )[0];
+
+    this.setState({ initialState: newData }, () => {
+      handleReset();
+      // setFieldValue("contactName", contactName);
+      // setFieldValue("email", email);
+      // setFieldValue("mobile", mobile);
+    });
+    // this.forceUpdate();
   };
 
   handleSubmit = async (values, { setSubmitting }) => {
@@ -80,6 +90,7 @@ export default class ContactDetail extends Component {
 
   render() {
     const { initialState, disable } = this.state;
+    console.log(initialState);
     return (
       <ContactDetailStyle>
         <Menu />
@@ -95,7 +106,6 @@ export default class ContactDetail extends Component {
                     initialValues={data}
                     validationSchema={UserValidation}
                     onSubmit={this.handleSubmit}
-
                   >
                     {({
                       values,
@@ -104,8 +114,16 @@ export default class ContactDetail extends Component {
                       handleChange,
                       handleBlur,
                       handleSubmit,
+                      isValid,
+                      validateForm,
+                      isValidating,
+                      isInitialValid,
+                      setFieldValue,
+                      handleReset,
+                      resetForm,
                     }) => (
                       <Form onSubmit={handleSubmit}>
+                        {console.log(values, data, "values")}
                         <div className="form-div">
                           <Row gutter={24}>
                             <Col xs={24} sm={24} md={24} lg={12} xl={12}>
@@ -119,6 +137,15 @@ export default class ContactDetail extends Component {
                                   name="contactName"
                                   value={values.contactName}
                                   handleChange={handleChange}
+                                  onChange={(e) => {
+                                    // setFieldValue(
+                                    //   "contactName",
+                                    //   e.target.value
+                                    // );
+                                    let data = [...initialState];
+                                    data[index].contactName = e.target.value;
+                                    this.setState({ initialState: data });
+                                  }}
                                   max={255}
                                   tabIndex="1"
                                   className={
@@ -195,21 +222,47 @@ export default class ContactDetail extends Component {
                           {initialState.length - 1 === index && (
                             <Button
                               style={{ marginRight: "2rem" }}
-                              onClick={() => this.increase(data.id)}
+                              onClick={() => {
+                                // const a = handleSubmit();
+                                // if (a) this.increase(data.id);
+                                validateForm().then((d) => {
+                                  if (Object.keys(d).length === 0)
+                                    this.increase(data.key);
+                                  else handleSubmit();
+                                });
+
+                                // console.log(
+                                //   isInitialValid,
+                                //   isValid,
+                                //   isValidating
+                                // );
+                                // validateForm().then((d) => console.log(d));
+                              }}
                             >
                               Add Another
                             </Button>
                           )}
                           {initialState.length !== 1 && (
-                            <Button className="removeBtn"
-
-                              onClick={() => this.remove(data.id)}
+                            <Button
+                              className="removeBtn"
+                              onClick={() => {
+                                // handleReset();
+                                // setFieldValue("contactName", null);
+                                // setFieldValue("email", null);
+                                // setFieldValue("mobile", null);
+                                // resetForm({ values: { contactName: "" } });
+                                this.remove(
+                                  data.key,
+                                  setFieldValue,
+                                  handleReset
+                                );
+                              }}
                             >
                               Remove
                             </Button>
                           )}
                           <Button type="submit" disabled={disable}>
-                            {initialState.filter((d) => d.id === data.id)[0]
+                            {initialState.filter((d) => d.key === data.key)[0]
                               ?.save
                               ? "Save"
                               : "Submit"}
