@@ -38,7 +38,11 @@ const ContactDetailStyle = styled.div`
         .btn-div {
           margin-top: 2em;
           display: flex;
-          justify-content: flex-end;
+          justify-content: space-between;
+
+          .removeBtn{
+            margin-right:50em;
+          }
         }
       }
     }

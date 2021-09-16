@@ -70,7 +70,7 @@ export default class ContactDetail extends Component {
         email: values.email,
         designation: values.designation,
       };
-      // await this.props.login(data);
+
       console.log("data", data);
       setSubmitting(false);
     } catch (error) {
@@ -95,7 +95,7 @@ export default class ContactDetail extends Component {
                     initialValues={data}
                     validationSchema={UserValidation}
                     onSubmit={this.handleSubmit}
-                    enableReinitialize
+
                   >
                     {({
                       values,
@@ -201,8 +201,8 @@ export default class ContactDetail extends Component {
                             </Button>
                           )}
                           {initialState.length !== 1 && (
-                            <Button
-                              style={{ marginRight: "2rem" }}
+                            <Button className="removeBtn"
+
                               onClick={() => this.remove(data.id)}
                             >
                               Remove
