@@ -114,7 +114,6 @@ export default class ContactDetail extends Component {
                       setFieldValue,
                       handleReset,
                       resetForm,
-
                     }) => (
                       <Form onSubmit={handleSubmit}>
                         {console.log(values, data, "values")}
@@ -125,10 +124,8 @@ export default class ContactDetail extends Component {
                                 <Label
                                   title="Contact Name :"
                                   className="label"
-
                                 />
                                 <Input
-
                                   onBlur={handleBlur}
                                   name="contactName"
                                   value={values.contactName}
@@ -143,9 +140,7 @@ export default class ContactDetail extends Component {
                                     data[index].contactName = e.target.value;
                                     this.setState({ initialState: data });
                                   }}
-
                                   tabIndex="1"
-
                                 />
                               </div>
                             </Col>
@@ -226,9 +221,7 @@ export default class ContactDetail extends Component {
                           </Row>
                         </div>
 
-
-
-                        <Row style={{marginTop:"1rem"}}>
+                        {/* <Row style={{marginTop:"1rem"}}>
                           
 
                               {initialState.length - 1 === index && (
@@ -275,10 +268,58 @@ export default class ContactDetail extends Component {
 
                           
                         </Row>
-                       
-
-
-
+                        */}
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            marginTop: "1rem",
+                          }}
+                        >
+                          <div>
+                            {initialState.length - 1 === index && (
+                              <Button
+                                style={{ marginRight: "2rem" }}
+                                onClick={() => {
+                                  validateForm().then((d) => {
+                                    if (Object.keys(d).length === 0)
+                                      this.increase(data.key);
+                                    else handleSubmit();
+                                  });
+                                }}
+                              >
+                                Add Another
+                              </Button>
+                            )}
+                            {initialState.length !== 1 && (
+                              <Button
+                                className="removeBtn"
+                                onClick={() => {
+                                  this.remove(
+                                    data.key,
+                                    setFieldValue,
+                                    handleReset
+                                  );
+                                }}
+                              >
+                                Remove
+                              </Button>
+                            )}
+                          </div>
+                          <div>
+                            <Button
+                              type="submit"
+                              disabled={disable}
+                              style={{ float: "right" }}
+                            >
+                              {initialState.filter((d) => d.key === data.key)[0]
+                                ?.save
+                                ? "Save"
+                                : "Submit"}
+                            </Button>
+                          </div>
+                        </div>
                       </Form>
                     )}
                   </Formik>
