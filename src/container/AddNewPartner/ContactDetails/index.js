@@ -7,9 +7,9 @@ import { v4 as uuidv4 } from "uuid";
 import * as Yup from "yup";
 
 const UserValidation = Yup.object().shape({
-  contactName: Yup.string().trim().required(" "),
-  mobile: Yup.string().trim().min(10).max(10).required(" "),
-  email: Yup.string().trim().email().required(" "),
+  contactName: Yup.string().trim(),
+  mobile: Yup.string().trim().min(10).max(10),
+  email: Yup.string().trim().email(),
 });
 export default class ContactDetail extends Component {
   constructor() {
@@ -57,7 +57,7 @@ export default class ContactDetail extends Component {
     const newData = this.state.initialState.filter((data) => data.key !== key);
     this.setState({ initialState: newData }, () => {
       handleReset();
-     });
+    });
   };
 
   handleSubmit = async (values, { setSubmitting }) => {
@@ -95,6 +95,7 @@ export default class ContactDetail extends Component {
                 <Card>
                   <h2 className="headerCard">Contact Details:</h2>
                   <Formik
+                    enableReinitialize
                     initialValues={data}
                     validationSchema={UserValidation}
                     onSubmit={this.handleSubmit}
@@ -113,6 +114,7 @@ export default class ContactDetail extends Component {
                       setFieldValue,
                       handleReset,
                       resetForm,
+
                     }) => (
                       <Form onSubmit={handleSubmit}>
                         {console.log(values, data, "values")}
@@ -123,24 +125,27 @@ export default class ContactDetail extends Component {
                                 <Label
                                   title="Contact Name :"
                                   className="label"
+
                                 />
                                 <Input
+
                                   onBlur={handleBlur}
                                   name="contactName"
                                   value={values.contactName}
                                   handleChange={handleChange}
-                                  onChange={(e) => {
-                                    let data = [...initialState];
-                                    data[index].contactName = e.target.value;
-                                    this.setState({ initialState: data });
-                                  }}
-                                  max={255}
-                                  tabIndex="1"
                                   className={
                                     errors.contactName && touched.contactName
                                       ? "empty"
                                       : ""
                                   }
+                                  onChange={(e) => {
+                                    let data = [...initialState];
+                                    data[index].contactName = e.target.value;
+                                    this.setState({ initialState: data });
+                                  }}
+
+                                  tabIndex="1"
+
                                 />
                               </div>
                             </Col>
@@ -158,7 +163,12 @@ export default class ContactDetail extends Component {
                                   type="number"
                                   value={values.mobile}
                                   handleChange={handleChange}
-                                  tabIndex="4"
+                                  onChange={(e) => {
+                                    let data = [...initialState];
+                                    data[index].mobile = e.target.value;
+                                    this.setState({ initialState: data });
+                                  }}
+                                  tabIndex="2"
                                 />
                               </div>
                             </Col>
@@ -177,8 +187,13 @@ export default class ContactDetail extends Component {
                                   type="email"
                                   value={values.email}
                                   handleChange={handleChange}
+                                  onChange={(e) => {
+                                    let data = [...initialState];
+                                    data[index].email = e.target.value;
+                                    this.setState({ initialState: data });
+                                  }}
                                   max={255}
-                                  tabIndex="5"
+                                  tabIndex="3"
                                 />
                               </div>
                             </Col>
@@ -193,8 +208,13 @@ export default class ContactDetail extends Component {
                                   name="designation"
                                   value={values.designation}
                                   handleChange={handleChange}
+                                  onChange={(e) => {
+                                    let data = [...initialState];
+                                    data[index].designation = e.target.value;
+                                    this.setState({ initialState: data });
+                                  }}
                                   max={255}
-                                  tabIndex="3"
+                                  tabIndex="4"
                                   className={
                                     errors.designation && touched.designation
                                       ? "empty"
@@ -206,43 +226,59 @@ export default class ContactDetail extends Component {
                           </Row>
                         </div>
 
-                        <div className="btn-div">
-                          {initialState.length - 1 === index && (
-                            <Button
-                              style={{ marginRight: "2rem" }}
-                              onClick={() => {
-                               
-                                validateForm().then((d) => {
-                                  if (Object.keys(d).length === 0)
-                                    this.increase(data.key);
-                                  else handleSubmit();
-                                });
-                              }}
-                            >
-                              Add Another
-                            </Button>
-                          )}
-                          {initialState.length !== 1 && (
-                            <Button
-                              className="removeBtn"
-                              onClick={() => {
-                                this.remove(
-                                  data.key,
-                                  setFieldValue,
-                                  handleReset
-                                );
-                              }}
-                            >
-                              Remove
-                            </Button>
-                          )}
-                          <Button type="submit" disabled={disable}>
-                            {initialState.filter((d) => d.key === data.key)[0]
-                              ?.save
-                              ? "Save"
-                              : "Submit"}
-                          </Button>
-                        </div>
+
+
+                        <Row style={{marginTop:"1rem"}}>
+                          
+
+                              {initialState.length - 1 === index && (
+                            <Col xs={4} sm={4} md={4} lg={4} xl={12} >
+                                <Button
+
+                                  onClick={() => {
+
+                                    validateForm().then((d) => {
+                                      if (Object.keys(d).length === 0)
+                                        this.increase(data.key);
+                                      else handleSubmit();
+                                    });
+                                  }}
+                                >
+                                  Add Another
+                                </Button>
+                            </Col>
+                              )}
+                              {initialState.length !== 1 && (
+                            <Col xs={4} sm={4} md={4} lg={14} xl={12}  >
+                                <Button
+                                  className="removeBtn"
+                                  onClick={() => {
+                                    this.remove(
+                                      data.key,
+                                      setFieldValue,
+                                      handleReset
+                                    );
+                                  }}
+                                >
+                                  Remove
+                                </Button>
+                            </Col>
+                              )}
+                            <Col xs={8} sm={8} md={8} lg={6} xl={12}>
+                              <Button type="submit" disabled={disable} style={{float:"right"}}>
+                                {initialState.filter((d) => d.key === data.key)[0]
+                                  ?.save
+                                  ? "Save"
+                                  : "Submit"}
+                              </Button>
+                            </Col>
+
+                          
+                        </Row>
+                       
+
+
+
                       </Form>
                     )}
                   </Formik>

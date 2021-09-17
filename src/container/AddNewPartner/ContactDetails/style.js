@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { size } from "../../../App/device";
-// import { Theme } from "../../App/theme";
 
 const ContactDetailStyle = styled.div`
   display: flex;
@@ -35,18 +34,23 @@ const ContactDetailStyle = styled.div`
             }
           }
         }
-        .btn-div {
-          margin-top: 2em;
-          display: flex;
-          justify-content: space-between;
+        // .btn-div {
+        //   margin-top: 2em;
+        //   display: flex;
+        //   justify-content: space-between;
 
-          .removeBtn{
-            margin-right:50em;
-          }
-        }
+          
+        // }
       }
     }
   }
+
+  @media ${size["tablet-max"]} {
+    .HGH{
+      
+    }
+  }
+
 `;
 
 export { ContactDetailStyle };
