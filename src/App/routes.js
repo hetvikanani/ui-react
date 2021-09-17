@@ -19,6 +19,7 @@ import SalesAddEdit from "container/SalesAddEdit";
 import Wallet from "container/Wallet";
 import ContactDetail from "container/AddNewPartner/ContactDetails";
 import FinancialDetail from "container/AddNewPartner/Financial";
+import BasicDetail from "container/AddNewPartner/BasicDetails";
 
 const routes = [
   {
@@ -122,6 +123,12 @@ const routes = [
     exact: true,
     AuthRoute: true,
     component: FinancialDetail,
+  },
+  {
+    path: "/admin/basicdetail",
+    exact: true,
+    AuthRoute: true,
+    component: BasicDetail,
   },
 ];
 const PrivateRoute = ({ component: Component, ...rest }) => {

@@ -4,6 +4,7 @@ import { Row, Col, Card } from "antd";
 import { FinancialDetailStyle } from "./style";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import { withRouter } from "react-router";
 
 const UserValidation = Yup.object().shape({
   bankName: Yup.string()
@@ -12,12 +13,21 @@ const UserValidation = Yup.object().shape({
   branchName: Yup.string()
     .trim()
     .required(" "),
-
+   
+    branchName: Yup.string()
+    .trim()
+    .required(" "),
+    pincode: Yup.string().trim().required(" ").min(6).max(6),
+    accountNo: Yup.string().trim().min(11).max(11).required(" "),
+  ifscCode: Yup.string()
+    .trim()
+    .required(" ")
+    .matches(/^[A-Z]{4}0[A-Z0-9]{6}$/, "only"),
 
 
 });
 
-export default class FinancialDetail extends Component {
+class FinancialDetail extends Component {
   constructor() {
     super();
     this.state = {
@@ -73,7 +83,7 @@ export default class FinancialDetail extends Component {
                                 name="bankName"
                                 value={values.bankName}
                                 handleChange={handleChange}
-                                max={255}
+                                
                                 tabIndex="1"
                                 className={
                                   errors.bankName && touched.bankName
@@ -97,7 +107,7 @@ export default class FinancialDetail extends Component {
                                 name="branchName"
                                 value={values.branchName}
                                 handleChange={handleChange}
-                                max={255}
+                                
                                 tabIndex="3"
                                 className={
                                   errors.branchName && touched.branchName
@@ -110,11 +120,12 @@ export default class FinancialDetail extends Component {
 
                               <Label title="Account No :" className="label" />
                               <Input
+                              type="number"
                                 onBlur={handleBlur}
                                 name="accountNo"
                                 value={values.accountNo}
                                 handleChange={handleChange}
-                                max={255}
+                                
                                 tabIndex="3"
                                 className={
                                   errors.accountNo && touched.accountNo
@@ -134,13 +145,9 @@ export default class FinancialDetail extends Component {
                                 name="branchName"
                                 value={values.branchName}
                                 handleChange={handleChange}
-                                max={255}
+                                
                                 tabIndex="3"
-                                className={
-                                  errors.branchName && touched.branchName
-                                    ? "empty"
-                                    : ""
-                                }
+                                
                               />
                             </div>
                           </Col>
@@ -158,7 +165,7 @@ export default class FinancialDetail extends Component {
                                 name="ifscCode"
                                 value={values.ifscCode}
                                 handleChange={handleChange}
-                                max={255}
+                                
                                 tabIndex="3"
                                 className={
                                   errors.ifscCode && touched.ifscCode
@@ -173,15 +180,15 @@ export default class FinancialDetail extends Component {
 
                               <Label title="Pincode :" className="label" />
                               <Input
-
+                                type="number"
                                 onBlur={handleBlur}
-                                name="branchName"
-                                value={values.branchName}
+                                name="pincode"
+                                value={values.pincode}
                                 handleChange={handleChange}
-                                max={255}
+                               
                                 tabIndex="3"
                                 className={
-                                  errors.branchName && touched.branchName
+                                  errors.pincode && touched.pincode
                                     ? "empty"
                                     : ""
                                 }
@@ -201,7 +208,7 @@ export default class FinancialDetail extends Component {
                                 name="city"
                                 value={values.city}
                                 handleChange={handleChange}
-                                max={255}
+                                
                                 tabIndex="3"
                                 className={
                                   errors.city && touched.city
@@ -221,7 +228,7 @@ export default class FinancialDetail extends Component {
                                 name="state "
                                 value={values.state}
                                 handleChange={handleChange}
-                                max={255}
+                                
                                 tabIndex="3"
                                 className={
                                   errors.state && touched.state
@@ -238,12 +245,15 @@ export default class FinancialDetail extends Component {
 
                       <div className="btn-div">
 
-                        <Button type="submit" className="submitBtn"
+                        <Button  className="submitBtn"
                           disabled={disable}
+                          onClick={()=>{this.props.history.push("/admin/basicdetail")}}
                         >
+                          
                           Previous
                         </Button>
                         <Button 
+                        type="submit"
                           disabled={disable}
                         >
                           Next
@@ -260,3 +270,6 @@ export default class FinancialDetail extends Component {
     );
   }
 }
+
+
+export default withRouter(FinancialDetail);

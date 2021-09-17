@@ -1,39 +1,110 @@
 import React, { Component } from "react";
-import { Menu, Header, Input, Label, Button } from "components/Form";
-import { Row, Col, Card } from "antd";
+import { Menu, Header, Input, Label, Button, FileUpload } from "components/Form";
+import { Row, Col, Card, Image, Switch } from "antd";
 import { BasicDetailStyle } from "./style";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import { CloseOutlined, UploadOutlined } from "@ant-design/icons";
+
 
 const UserValidation = Yup.object().shape({
-  bankName: Yup.string()
+
+
+  companyName: Yup.string()
     .trim()
     .required(" "),
-  branchName: Yup.string()
+  email: Yup.string()
     .trim()
+    .email()
     .required(" "),
+  mobile: Yup.string()
+    .trim()
+    .min(10)
+    .max(10)
+    .required(" "),
+
 
 
 
 });
+
+
 
 export default class BasicDetail extends Component {
   constructor() {
     super();
     this.state = {
       disable: false,
+      imgByte: "",
+      imgnm: "",
       initialState: {
-        bankName: "",
-        branchName: "",
-        address: "",
-        accountNo: "",
-        ifscCode: "",
-        pincode: '',
-        city: '',
-        state: '',
+        companyName: "",
+        email: "",
+        mobile: "",
+        gstnumber: "",
+        pan: "",
+        aadhar: "",
       },
     };
   }
+
+  fileUpload = () => {
+    try {
+      const { imgnm, imgByte } = this.state;
+      let name = imgnm;
+      if (imgnm && imgByte) {
+        let a = name.split(".");
+        name = a[0].substr(0, 5) + "." + a[1];
+        return (
+          <>
+            <span className="optionui">
+              <span className="txtWrap">{name}</span>
+              <CloseOutlined onClick={() => this.removefile()} />
+            </span>
+            <Image src={imgByte} width={50} height={30} />
+          </>
+        );
+      }
+      return (
+        <FileUpload
+          // accept="image/*"
+          accept=".jpg, .jpeg, .png"
+          image={true}
+          sendByte={this.setByte}
+          elements={<UploadOutlined />}
+        // elements={
+        // <Button color="secondary" className="uploadbtn">
+        //   <VerticalAlignTopOutlined />
+        //   No File Choosen
+        // </Button>
+
+        // }
+        />
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  removefile = () => this.setState({ imgByte: "", imgnm: "" });
+
+  setByte = (byteCode, name) =>
+    this.setState({ imgByte: byteCode, imgnm: name });
+
+  handleSubmit = async (values, { setSubmitting }) => {
+    try {
+      this.setState({ btnDisable: true });
+      setTimeout(() => {
+        this.setState({ btnDisable: false });
+      }, 4500);
+
+      setSubmitting(false);
+    } catch (error) {
+      console.log(error, "handle error");
+    }
+  };
+
+
+
   render() {
     const { initialState, disable } = this.state;
     return (
@@ -45,7 +116,7 @@ export default class BasicDetail extends Component {
             <h1 className="header">Add New Partner</h1>
             <div>
               <Card>
-                <h2 className="headerCard">Financial Details:</h2>
+                <h2 className="headerCard">Basic Details:</h2>
                 <Formik
                   initialValues={initialState}
                   validationSchema={UserValidation}
@@ -67,16 +138,15 @@ export default class BasicDetail extends Component {
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
-                              <Label title="Bank Name :" className="label" />
+                              <Label title="Company Name :" className="label" />
                               <Input
                                 onBlur={handleBlur}
-                                name="bankName"
+                                name="companyName"
                                 value={values.bankName}
                                 handleChange={handleChange}
-                                max={255}
                                 tabIndex="1"
                                 className={
-                                  errors.bankName && touched.bankName
+                                  errors.companyName && touched.companyName
                                     ? "empty"
                                     : ""
                                 }
@@ -91,59 +161,42 @@ export default class BasicDetail extends Component {
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
-                              <Label title="Branch Name :" className="label" />
+                              <Label title="Email ID :" className="label" />
                               <Input
                                 onBlur={handleBlur}
-                                name="branchName"
-                                value={values.branchName}
+                                name="email"
+                                value={values.email}
                                 handleChange={handleChange}
-                                max={255}
-                                tabIndex="3"
+                                tabIndex="2"
                                 className={
-                                  errors.branchName && touched.branchName
+                                  errors.email && touched.email
                                     ? "empty"
                                     : ""
                                 }
                               />
                             </div>
-                            <div className="cardDiv">
 
-                              <Label title="Account No :" className="label" />
-                              <Input
-                                onBlur={handleBlur}
-                                name="accountNo"
-                                value={values.accountNo}
-                                handleChange={handleChange}
-                                max={255}
-                                tabIndex="3"
-                                className={
-                                  errors.accountNo && touched.accountNo
-                                    ? "empty"
-                                    : ""
-                                }
-                              />
-                            </div>
                           </Col>
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
-                              <Label title="Address :" className="label" />
+                              <Label title="Mobile No :" className="label" />
                               <Input
-                                row={6}
+                                type="number"
                                 onBlur={handleBlur}
-                                name="branchName"
-                                value={values.branchName}
+                                name="mobile"
+                                value={values.mobile}
                                 handleChange={handleChange}
-                                max={255}
                                 tabIndex="3"
                                 className={
-                                  errors.branchName && touched.branchName
+                                  errors.mobile && touched.mobile
                                     ? "empty"
                                     : ""
                                 }
                               />
                             </div>
                           </Col>
+
 
                         </Row>
 
@@ -152,36 +205,24 @@ export default class BasicDetail extends Component {
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
-                              <Label title="IFSC Code :" className="label" />
-                              <Input
-                                onBlur={handleBlur}
-                                name="ifscCode"
-                                value={values.ifscCode}
-                                handleChange={handleChange}
-                                max={255}
-                                tabIndex="3"
-                                className={
-                                  errors.ifscCode && touched.ifscCode
-                                    ? "empty"
-                                    : ""
-                                }
-                              />
+                              <Label title="GST Type :" className="label" />
+                              <span className="switch">Registered<Switch className="switch"/>Unregistered</span>
+
                             </div>
                           </Col>
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
-                              <Label title="Pincode :" className="label" />
+                              <Label title="GST Number :" className="label" />
                               <Input
 
                                 onBlur={handleBlur}
-                                name="branchName"
-                                value={values.branchName}
+                                name="gstnumber"
+                                value={values.gstnumber}
                                 handleChange={handleChange}
-                                max={255}
-                                tabIndex="3"
+                                tabIndex="5"
                                 className={
-                                  errors.branchName && touched.branchName
+                                  errors.gstnumber && touched.gstnumber
                                     ? "empty"
                                     : ""
                                 }
@@ -195,16 +236,15 @@ export default class BasicDetail extends Component {
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
-                              <Label title="City :" className="label" />
+                              <Label title="Pan :" className="label" />
                               <Input
                                 onBlur={handleBlur}
-                                name="city"
-                                value={values.city}
+                                name="pan"
+                                value={values.pan}
                                 handleChange={handleChange}
-                                max={255}
-                                tabIndex="3"
+                                tabIndex="6"
                                 className={
-                                  errors.city && touched.city
+                                  errors.pan && touched.pan
                                     ? "empty"
                                     : ""
                                 }
@@ -214,21 +254,31 @@ export default class BasicDetail extends Component {
                           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
                             <div className="cardDiv">
 
-                              <Label title="State :" className="label" />
+                              <Label title="Aadhar No :" className="label" />
                               <Input
 
                                 onBlur={handleBlur}
-                                name="state "
-                                value={values.state}
+                                name="aadhar "
+                                value={values.aadhar}
                                 handleChange={handleChange}
-                                max={255}
-                                tabIndex="3"
+                                tabIndex="7"
                                 className={
-                                  errors.state && touched.state
+                                  errors.aadhar && touched.aadhar
                                     ? "empty"
                                     : ""
                                 }
                               />
+                            </div>
+                          </Col>
+
+                        </Row>
+                        <Row gutter={24}>
+                          <Col xs={24} sm={24} md={24} lg={12} xl={12}>
+                            <div className="cardDiv">
+
+                              <Label title="Company Logo :" className="label" />
+                              <div className='upload'>{this.fileUpload()}</div>
+
                             </div>
                           </Col>
 
@@ -238,13 +288,14 @@ export default class BasicDetail extends Component {
 
                       <div className="btn-div">
 
-                        <Button type="submit" className="submitBtn"
+                        <Button className="submitBtn"
                           disabled={disable}
                         >
                           Previous
                         </Button>
-                        <Button 
+                        <Button type="submit"
                           disabled={disable}
+                          onClick={()=>{this.props.history.push("/admin/financialdetail")}}
                         >
                           Next
                         </Button>

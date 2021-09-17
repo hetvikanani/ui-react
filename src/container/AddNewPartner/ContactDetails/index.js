@@ -7,9 +7,9 @@ import { v4 as uuidv4 } from "uuid";
 import * as Yup from "yup";
 
 const UserValidation = Yup.object().shape({
-  contactName: Yup.string().trim(),
-  mobile: Yup.string().trim().min(10).max(10),
-  email: Yup.string().trim().email(),
+  contactName: Yup.string().trim().required(" "),
+  mobile: Yup.string().trim().min(10).max(10).required(" "),
+  email: Yup.string().trim().email().required(" "),
 });
 export default class ContactDetail extends Component {
   constructor() {
@@ -221,66 +221,13 @@ export default class ContactDetail extends Component {
                           </Row>
                         </div>
 
-                        {/* <Row style={{marginTop:"1rem"}}>
-                          
-
-                              {initialState.length - 1 === index && (
-                            <Col xs={4} sm={4} md={4} lg={4} xl={12} >
-                                <Button
-
-                                  onClick={() => {
-
-                                    validateForm().then((d) => {
-                                      if (Object.keys(d).length === 0)
-                                        this.increase(data.key);
-                                      else handleSubmit();
-                                    });
-                                  }}
-                                >
-                                  Add Another
-                                </Button>
-                            </Col>
-                              )}
-                              {initialState.length !== 1 && (
-                            <Col xs={4} sm={4} md={4} lg={14} xl={12}  >
-                                <Button
-                                  className="removeBtn"
-                                  onClick={() => {
-                                    this.remove(
-                                      data.key,
-                                      setFieldValue,
-                                      handleReset
-                                    );
-                                  }}
-                                >
-                                  Remove
-                                </Button>
-                            </Col>
-                              )}
-                            <Col xs={8} sm={8} md={8} lg={6} xl={12}>
-                              <Button type="submit" disabled={disable} style={{float:"right"}}>
-                                {initialState.filter((d) => d.key === data.key)[0]
-                                  ?.save
-                                  ? "Save"
-                                  : "Submit"}
-                              </Button>
-                            </Col>
-
-                          
-                        </Row>
-                        */}
-                        <div
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            marginTop: "1rem",
-                          }}
-                        >
+                      
+                        <div className="buttonDiv">
                           <div>
                             {initialState.length - 1 === index && (
                               <Button
-                                style={{ marginRight: "2rem" }}
+                              className="buttonParent"
+                                // style={{ marginRight: "2rem" }}
                                 onClick={() => {
                                   validateForm().then((d) => {
                                     if (Object.keys(d).length === 0)
@@ -294,7 +241,7 @@ export default class ContactDetail extends Component {
                             )}
                             {initialState.length !== 1 && (
                               <Button
-                                className="removeBtn"
+                               
                                 onClick={() => {
                                   this.remove(
                                     data.key,
@@ -307,8 +254,9 @@ export default class ContactDetail extends Component {
                               </Button>
                             )}
                           </div>
-                          <div>
+                          <div  >
                             <Button
+                            className="submit"
                               type="submit"
                               disabled={disable}
                               style={{ float: "right" }}

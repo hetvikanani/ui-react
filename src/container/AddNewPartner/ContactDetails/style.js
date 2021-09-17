@@ -33,22 +33,51 @@ const ContactDetailStyle = styled.div`
               color: #505458;
             }
           }
-        }
-        // .btn-div {
-        //   margin-top: 2em;
-        //   display: flex;
-        //   justify-content: space-between;
+
 
           
-        // }
+        }
+
+        .buttonDiv{
+          display: flex !important;
+          align-items:center;
+          justify-content:space-between;
+          margin-top:1rem;
+
+
+          @media ${size["tablet-sm-max"]} {
+   
+            
+              display:block !important;
+              float:left;
+            }
+
+          .buttonParent{
+            margin-right:2rem;
+          }
+
+          .submit{
+            float: right;
+
+            @media ${size["tablet-sm-max"]} {
+   
+              margin-top:1rem;
+              margin-right:10rem;
+              
+            }
+
+
+
+        
+          }
+      }
+
+         
+      
       }
     }
   }
-
-  @media ${size["tablet-max"]} {
-    .HGH{
-      
-    }
+ }
   }
 
 `;
