@@ -67,18 +67,12 @@ export default class BasicDetail extends Component {
       }
       return (
         <FileUpload
-          // accept="image/*"
+         
           accept=".jpg, .jpeg, .png"
           image={true}
           sendByte={this.setByte}
           elements={<UploadOutlined />}
-        // elements={
-        // <Button color="secondary" className="uploadbtn">
-        //   <VerticalAlignTopOutlined />
-        //   No File Choosen
-        // </Button>
-
-        // }
+        
         />
       );
     } catch (error) {
@@ -130,6 +124,7 @@ export default class BasicDetail extends Component {
                     handleChange,
                     handleBlur,
                     handleSubmit,
+                    validateForm,
 
                   }) => (
                     <Form onSubmit={handleSubmit}>
@@ -206,7 +201,7 @@ export default class BasicDetail extends Component {
                             <div className="cardDiv">
 
                               <Label title="GST Type :" className="label" />
-                              <span className="switch">Registered<Switch className="switch"/>Unregistered</span>
+                              <span className="switch">Registered<Switch/>Unregistered</span>
 
                             </div>
                           </Col>
@@ -295,7 +290,14 @@ export default class BasicDetail extends Component {
                         </Button>
                         <Button type="submit"
                           disabled={disable}
-                          onClick={()=>{this.props.history.push("/admin/financialdetail")}}
+                          onClick={() => {
+                            validateForm().then((d) => {
+                              if (Object.keys(d).length === 0)
+                              this.props.history.push('/admin/financialdetail');
+                              else handleSubmit();
+                            });
+                          }}
+                         
                         >
                           Next
                         </Button>

@@ -79,7 +79,13 @@ export default class ContactDetail extends Component {
       console.log(error, "handle error");
     }
   };
-
+  proex = (e, index,setFieldValue) => {
+    const { initialState } = this.state;
+    let data = [...initialState];
+    data[index].mobile = e.target.value;
+    this.setState({ initialState: data });
+    setFieldValue("mobile", e.target.value);
+  };
   render() {
     const { initialState, disable } = this.state;
     console.log(initialState);
@@ -157,11 +163,8 @@ export default class ContactDetail extends Component {
                                   name="mobile"
                                   type="number"
                                   value={values.mobile}
-                                  handleChange={handleChange}
-                                  onChange={(e) => {
-                                    let data = [...initialState];
-                                    data[index].mobile = e.target.value;
-                                    this.setState({ initialState: data });
+                                  handleChange={(e) => {
+                                    this.proex(e,index, setFieldValue);
                                   }}
                                   tabIndex="2"
                                 />
@@ -221,13 +224,11 @@ export default class ContactDetail extends Component {
                           </Row>
                         </div>
 
-                      
                         <div className="buttonDiv">
                           <div>
                             {initialState.length - 1 === index && (
                               <Button
-                              className="buttonParent"
-                                // style={{ marginRight: "2rem" }}
+                                className="buttonParent"
                                 onClick={() => {
                                   validateForm().then((d) => {
                                     if (Object.keys(d).length === 0)
@@ -241,7 +242,6 @@ export default class ContactDetail extends Component {
                             )}
                             {initialState.length !== 1 && (
                               <Button
-                               
                                 onClick={() => {
                                   this.remove(
                                     data.key,
@@ -254,9 +254,9 @@ export default class ContactDetail extends Component {
                               </Button>
                             )}
                           </div>
-                          <div  >
+                          <div>
                             <Button
-                            className="submit"
+                              className="submit"
                               type="submit"
                               disabled={disable}
                               style={{ float: "right" }}

@@ -69,6 +69,7 @@ class FinancialDetail extends Component {
                     handleChange,
                     handleBlur,
                     handleSubmit,
+                    validateForm,
 
                   }) => (
                     <Form onSubmit={handleSubmit}>
@@ -254,7 +255,14 @@ class FinancialDetail extends Component {
                         </Button>
                         <Button 
                         type="submit"
-                          disabled={disable}
+                        disabled={disable}
+                        onClick={() => {
+                          validateForm().then((d) => {
+                            if (Object.keys(d).length === 0)
+                            this.props.history.push('/admin/contactdetail');
+                            else handleSubmit();
+                          });
+                        }}
                         >
                           Next
                         </Button>
