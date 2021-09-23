@@ -8,7 +8,7 @@ import { RenderDrop } from "components/Form";
 import { StyleComponent } from "./style";
 import { setCollapsMenu } from "redux/app/actions";
 import { PageConst, RemoveConst } from "App/AppConstant";
-import { logo, logoWhite } from "components/Images";
+import { logo, logoWhite, headerIcon } from "components/Images";
 import { getAuthRole, getAuthUserID } from "modules/helper";
 
 var userRole = getAuthRole();
@@ -121,7 +121,15 @@ class Header extends Component {
   render() {
     const { show, collapsed } = this.props;
     let allwidth = window.innerWidth;
-    let admin = true;
+    let pathname = window.location.pathname;
+
+    let admin =
+      pathname === "/partners" ||
+      pathname === "/add-new-partner" ||
+      pathname === "/admin-product" ||
+      pathname === "/add-new-product" ||
+      pathname === "/userlist" ||
+      pathname === "/add-new-user";
     return (
       <StyleComponent className={!show ? "" : "show"}>
         <div className="maindiv" id="menu-form">
@@ -131,18 +139,31 @@ class Header extends Component {
                 className="fa fa-bars text-white"
                 onClick={() => this.props.setCollapsMenu(!collapsed)}
               ></i>
-              <h4 className="text-white">Nbl</h4>
+              {!admin && (
+                <>
+                  <h4 className="text-white">Nbl</h4>
+                </>
+              )}
+
+              {admin && (
+                <>
+                  <h4 className="text-white">Hello Ashish</h4>
+                </>
+              )}
             </div>
+
             <div>
               {!admin && (
                 <>
                   {this.iconUI("fa-shopping-cart", "/shop")}
                   {this.iconUI("fa-wallet", "/wallet")}
                   {this.iconUI("fa-bell", "/shop")}
+                  {this.iconUI("fa-user", "/profile")}
                 </>
               )}
-
-              {this.iconUI("fa-user", "/profile")}
+              {admin && <>
+                {this.iconUI("fa-user", "/profile")}
+              </>}
             </div>
           </div>
           <NavLink to="/" className="flex mr-auto">

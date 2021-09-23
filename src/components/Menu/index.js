@@ -67,39 +67,37 @@ class MenuComponent extends Component {
         pathname === "/add-new-user";
       if (admin === true) mi = AdminItems;
       else mi = MenuItems;
-      return mi.map(({ title, Icon }, i) => {
+      return mi.map((a, i) => {
+        console.log(a, "aaaa");
         let cls =
-          url === title.toLowerCase() ||
+          url === a.title.toLowerCase() ||
           (url === "" && i === 0 && titlekey === "")
             ? "active"
             : "";
-        if (title !== "CRM" && title !== "Help")
+        if (a.title !== "CRM" && a.title !== "Help")
           return (
             <Menu.Item
-              key={title}
+              key={a.title}
               className={`anime ${cls}`}
-              icon={
-                !admin ? i === 0 ? <HomeOutlined /> : <UserOutlined /> : null
-              }
+              icon={i === 0 ? <HomeOutlined /> : <UserOutlined />}
             >
-              {/* aaya style dy sk */}
-              <Icon />
-              {title}
+              {a.icon}{a?.title || a}
+              {/* {a.title} */}
             </Menu.Item>
           );
         else {
-          let menu = title === "CRM" ? CRMMenu : HelpMenu;
+          let menu = a.title === "CRM" ? CRMMenu : HelpMenu;
           return (
             <SubMenu
               key={i}
-              title={title}
+              title={a.title}
               icon={<UserOutlined />}
               className="anime"
             >
-              {menu.map(({ title, Icon }) => (
-                <Menu.Item key={title} className="anime">
-                  <Icon />
-                  {title}
+              {menu.map((a) => (
+                <Menu.Item key={a.title} className="anime">
+                  {/* {a} */}
+                  {a.title}
                 </Menu.Item>
               ))}
             </SubMenu>

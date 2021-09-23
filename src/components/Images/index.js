@@ -55,6 +55,7 @@ import { ReactComponent as AdminPartner } from "assets/images/adminPartners.svg"
 import adminProduct from "assets/images/adminProduct.svg";
 import adminSubscribe from "assets/images/adminSubscribe.svg";
 import adminUsers from "assets/images/adminUsers.svg";
+import headerIcon from "assets/images/headerIcon.svg";
 
 export {
   meeting,
@@ -114,4 +115,5 @@ export {
   adminProduct,
   adminSubscribe,
   adminUsers,
+  headerIcon,
 };
