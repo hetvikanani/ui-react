@@ -116,11 +116,12 @@ class Header extends Component {
       className={"fas " + cls}
       onClick={() => this.props.history.push(url)}
     ></i>
-  );  
-  
+  );
+
   render() {
     const { show, collapsed } = this.props;
     let allwidth = window.innerWidth;
+    let admin = true;
     return (
       <StyleComponent className={!show ? "" : "show"}>
         <div className="maindiv" id="menu-form">
@@ -133,12 +134,15 @@ class Header extends Component {
               <h4 className="text-white">Nbl</h4>
             </div>
             <div>
-              {this.iconUI("fa-shopping-cart", "/shop")}
-              {this.iconUI("fa-wallet", "/wallet")}
-              {this.iconUI("fa-bell", "/shop")}
+              {!admin && (
+                <>
+                  {this.iconUI("fa-shopping-cart", "/shop")}
+                  {this.iconUI("fa-wallet", "/wallet")}
+                  {this.iconUI("fa-bell", "/shop")}
+                </>
+              )}
+
               {this.iconUI("fa-user", "/profile")}
-             
-              
             </div>
           </div>
           <NavLink to="/" className="flex mr-auto">
