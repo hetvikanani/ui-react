@@ -4,7 +4,7 @@ import { Theme } from "App/theme";
 
 const StyledComponent = styled.div`
   background-color: ${Theme.mainColor};
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   height: 100vh;
   padding-top: 1.8em;
   .logo {

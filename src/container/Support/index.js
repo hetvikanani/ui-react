@@ -6,6 +6,10 @@ import { SupportStyle } from "./style";
 import { Menu, Header } from "components/Form";
 import { Button, Input, Label } from "components/Form";
 import { PageConst, ButtonConstant, FormValidation } from "App/AppConstant";
+import { supportConstant } from "./constant";
+
+
+
 const ValidationSchema = Yup.object().shape({
   name: Yup.string().trim().required(" "),
   email: Yup.string()
@@ -67,7 +71,7 @@ class Support extends Component {
                 <Form onSubmit={handleSubmit}>
                   <div className="form_div">
                     <div className="field">
-                      <Label title={PageConst.name} 
+                      <Label title={supportConstant.name} 
                       className={
                         errors.name && touched.name
                           ? "empty"
@@ -75,7 +79,7 @@ class Support extends Component {
                       }
                       />
                       <Input
-                        placeholder={PageConst.entYoNa}
+                        placeholder={supportConstant.placeName}
                         className={errors.name && touched.name ? "empty" : ""}
                         onBlur={handleBlur}
                         name="name"
@@ -85,7 +89,7 @@ class Support extends Component {
                       />                      
                     </div>
                     <div className="field">
-                      <Label title={PageConst.email}
+                      <Label title={supportConstant.email}
                          className={
                           errors.email && touched.email
                             ? "empty"
@@ -93,7 +97,7 @@ class Support extends Component {
                         }
                       />
                       <Input
-                        placeholder={PageConst.entYoEmaAdd}
+                        placeholder={supportConstant.placeEmail}
                         className={errors.email && touched.email ? "empty" : ""}
                         onBlur={handleBlur}
                         name="email"
@@ -106,7 +110,7 @@ class Support extends Component {
                       )}
                     </div>
                     <div className="field">
-                      <Label title={PageConst.msg} 
+                      <Label title={supportConstant.msg} 
                       className={
                         errors.message && touched.message
                           ? "empty"
@@ -128,9 +132,9 @@ class Support extends Component {
                       )}
                     </div>
                     <div className="field">
-                      <Label title={PageConst.phonNo} />
+                      <Label title={supportConstant.phone} />
                       <Input
-                        placeholder={PageConst.entYoPhoNo}
+                        placeholder={supportConstant.placePhone}
                         className={
                           errors.number && touched.number ? "empty" : ""
                         }
@@ -146,7 +150,7 @@ class Support extends Component {
                     </div>
                     <div className="btnDiv">
                       <Button type="submit" disabled={disable}>
-                        {ButtonConstant.submit}
+                        {supportConstant.submit}
                       </Button>
                     </div>
                   </div>

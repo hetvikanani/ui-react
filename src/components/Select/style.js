@@ -19,8 +19,8 @@ const SelectContainer = styled.div`
       width: -webkit-fill-available;
       border: 1px solid rgba(0, 0, 0, 0.125);
       height: 2.5em;
-      // box-shadow: 0px 0px 7px rgb(0, 0, 0, .15);
-      border-radius: 0px;
+      // box-shadow: 0 0 7px rgb(0, 0, 0, .15);
+      border-radius: 0;
       color: #b5b5b5;
       input {
         box-shadow: none !important;
@@ -62,7 +62,7 @@ const SelectContainer = styled.div`
   .empty {
     .ant-select-selector {
       border: 1px solid #e81c1c;
-      box-shadow: 0px 0px 7px red !important;
+      box-shadow: 0 0 7px red !important;
     }
   }
   &.default {

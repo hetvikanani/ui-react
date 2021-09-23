@@ -3,12 +3,15 @@ import { connect } from "react-redux";
 import { Spin, Image } from "antd";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
+import Particles from "react-particles-js";
 
 import { Label, Input, Button } from "components/Form";
 import { login } from "redux/login/actions";
-import { FormValidation, ButtonConstant } from "App/AppConstant";
+import { FormValidation } from "App/AppConstant";
 import { StyleContainer } from "./style.js";
-import { LoginConstant } from "./constant";
+import { RegistrationConstant } from "./constant";
+import { logo } from "components/Images";
+
 
 const loginValidationSchema = Yup.object().shape({
   name: Yup.string().trim().required(" "),
@@ -47,10 +50,25 @@ class Login extends Component {
     return (
       <Spin spinning={loading} size="large">
         <StyleContainer>
-          <div className="form-div">
-            {/* <Image alt="logo" className="anime" width={50} src={logo}preview={false}/> */}
-            <hr className="anime" />
-            <Label className="head anime" title={LoginConstant.reg} />
+        <div className="canvasDiv">
+            <Particles
+              height="100vh"
+              width="100vw"
+              params={{
+                particles: {
+                  color: { value: "#fff" },
+                  line_linked: { color: { value: "#fff" } },
+                  number: { value: 50 },
+                  size: { value: 3 },
+                },
+                retina_detect: true,
+              }}
+            />
+          </div>
+          <div className="form-div fadeInDown">
+          <div class="logoDiv">
+              <Image src={logo} alt="User Icon" preview={false} width={120} />
+            </div>            
             <div className="loginDiv">
               <Formik
                 initialValues={{ email: "", mobile: "", name: "", ref: "" }}
@@ -73,7 +91,7 @@ class Login extends Component {
                   >
                     <div className="anime col-span-12 sm:col-span-12">
                       <Label
-                        title={LoginConstant.name}
+                        title={RegistrationConstant.name}
                         className={errors.name && touched.name ? "empty" : ""}
                       />
                       <Input
@@ -88,7 +106,7 @@ class Login extends Component {
                     </div>
                     <div className="anime col-span-12 sm:col-span-12">
                       <Label
-                        title={LoginConstant.email}
+                        title={RegistrationConstant.email}
                         className={errors.email && touched.email ? "empty" : ""}
                       />
                       <Input
@@ -103,7 +121,7 @@ class Login extends Component {
                     </div>
                     <div className="anime col-span-12 sm:col-span-12">
                       <Label
-                        title={LoginConstant.mobile}
+                        title={RegistrationConstant.mobile}
                         className={
                           errors.mobile && touched.mobile ? "empty" : ""
                         }
@@ -124,7 +142,7 @@ class Login extends Component {
                     </div>
                     <div className="anime col-span-12 sm:col-span-12">
                       <Label
-                        title={LoginConstant.RefC}
+                        title={RegistrationConstant.RefC}
                         className={errors.ref && touched.ref ? "empty" : ""}
                       />
                       <Input
@@ -138,11 +156,11 @@ class Login extends Component {
                     </div>
 
                     {/* <NavLink to="/forget-mobile" className="forgetlbl">
-                        {LoginConstant.forgerPwd}
+                        {RegistrationConstant.forgerPwd}
                       </NavLink> */}
                     <div className="anime col-span-12 flex items-center sm:justify-end mt-5 btnDiv">
                       <Button type="submit" disabled={btnDisable}>
-                        {ButtonConstant.submit}
+                        {RegistrationConstant.submit}
                       </Button>
                     </div>
                   </Form>

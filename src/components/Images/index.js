@@ -15,9 +15,11 @@ import checkInOut from "assets/images/clendarView.svg";
 import copy from "assets/images/copy.png";
 import customerWhite from "assets/images/customerWhite.png";
 import deleteImg from "assets/images/deleteImg.png";
+import deleteSvg from "assets/images/deleteSvg.svg";
 import eAuction from "assets/images/eAuction.png";
 import eAuctionwhite from "assets/images/eAuctionwhite.png";
 import editPen from "assets/images/editPen.png";
+import edit from "assets/images/edit.svg";
 import eVoting from "assets/images/eVoting.png";
 import eVotingWhite from "assets/images/eVotingWhite.png";
 import ezeo from "assets/images/ezeo.png";
@@ -34,9 +36,12 @@ import logoWhite from "assets/images/logoWhite.png";
 import monthlySale from "assets/images/monthlySale.png";
 import meeting from "assets/images/meeting.svg";
 import nbpl from "assets/images/nbpl.png";
+import prospect from "assets/images/prospect.svg";
+import packag from "assets/images/packag.svg";
 import reception from "assets/images/reception.svg";
 import security from "assets/images/security.svg";
 import share from "assets/images/share.png";
+import sales from "assets/images/sales.svg";
 import vizman from "assets/images/vizman.png";
 import vizmanwhite from "assets/images/vizmanWhite.png";
 import videoCarousel1 from "assets/images/c1.png";
@@ -44,6 +49,13 @@ import videoCarousel2 from "assets/images/c2.png";
 import videoCarousel3 from "assets/images/c3.png";
 import videoCarousel4 from "assets/images/c4.png";
 import videoCarousel5 from "assets/images/c5.png";
+import view from "assets/images/view.svg";
+import wallet from "assets/images/wallet.svg";
+import adminPartner from "assets/images/adminPartners.svg";
+import adminProduct from "assets/images/adminProduct.svg";
+import adminSubscribe from "assets/images/adminSubscribe.svg";
+import adminUsers from "assets/images/adminUsers.svg";
+
 
 export {
   meeting,
@@ -64,9 +76,11 @@ export {
   copy,
   customerWhite,
   deleteImg,
+  deleteSvg,
   eAuction,
   eAuctionwhite,
   editPen,
+  edit,
   eVoting,
   eVotingWhite,
   ezeo,
@@ -82,8 +96,12 @@ export {
   logoWhite,
   monthlySale,
   nbpl,
+  prospect,
+  packag,
   reception,
   security,
+  share,
+  sales,
   vizman,
   vizmanwhite,
   videoCarousel1,
@@ -91,5 +109,11 @@ export {
   videoCarousel3,
   videoCarousel4,
   videoCarousel5,
-  share,
+  view,
+  wallet,
+  adminPartner,
+  adminProduct,
+  adminSubscribe,
+  adminUsers,
+
 };

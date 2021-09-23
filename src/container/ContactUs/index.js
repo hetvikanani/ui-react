@@ -7,6 +7,8 @@ import { SearchOutlined } from "@ant-design/icons";
 import { ContactStyle } from "./style";
 import { Menu, Header, Input, Button } from "components/Form";
 import { FormValidation, PageConst } from "App/AppConstant";
+import { ContactPageconst } from "./constant";
+
 const ValidationSchema = Yup.object().shape({
   name: Yup.string().trim().required(" "),
   email: Yup.string().trim().email(FormValidation.emailInvalid).required(" "),
@@ -54,7 +56,7 @@ class Contact extends Component {
             <Row gutter={20}>
               <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                 <Card>
-                  <h3>Contact Us</h3>
+                  <h3>{ContactPageconst.contactUs}</h3>
                   <Formik
                     initialValues={initState}
                     validationSchema={ValidationSchema}
@@ -77,7 +79,7 @@ class Contact extends Component {
                               value={values.name}
                               onBlur={handleBlur}
                               handleChange={handleChange}
-                              placeholder="Full Name"
+                              placeholder={ContactPageconst.fullName}
                               tabIndex="1"
                               className={
                                 errors.name && touched.name ? "empty" : ""
@@ -90,7 +92,7 @@ class Contact extends Component {
                               value={values.email.trim()}
                               onBlur={handleBlur}
                               handleChange={handleChange}
-                              placeholder="Email Address"
+                              placeholder={ContactPageconst.email}
                               tabIndex="2"
                               className={
                                 errors.email && touched.email ? "empty" : ""
@@ -103,7 +105,7 @@ class Contact extends Component {
                           <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                             <Input
                               name="message"
-                              placeholder="Message"
+                              placeholder={ContactPageconst.message}
                               row={4}
                               value={values.message}
                               handleChange={handleChange}
@@ -112,7 +114,7 @@ class Contact extends Component {
                           </Col>
                         </Row>
                         <div className="btnDiv">
-                          <Button type="submit">Send Message</Button>
+                          <Button type="submit">{ContactPageconst.sendMessage}</Button>
                         </div>
                       </Form>
                     )}
@@ -154,10 +156,10 @@ class Contact extends Component {
               <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                 <Card>
                   <div className="banch_div">
-                    <h3>Our Branches</h3>
+                    <h3>{ContactPageconst.ourBranches}</h3>
                     <div className="search_div">
                       <Input
-                        placeholder={PageConst.search}
+                        placeholder={ContactPageconst.search}
                         suffix={<SearchOutlined />}
                       />
                     </div>

@@ -8,4 +8,26 @@ const tableData = [
   { name: "Dharti", number: "1234567891" },
   { name: "Dharti", number: "1234567891" },
 ];
-export { formTitle, tableTitle, tableData };
+
+const leadsConst = {
+  cusName: "Customer Name",
+  name: "Name",
+  number: "Number",
+  mobile: "Mobile Number",
+  emid: "Email ID",
+  email: "Email",
+  address: "Address",
+  save:"Save",
+  cusSelect: "Customer Selection",
+  leadType: "Lead type",
+  product: "Product",
+  remarks:"Remarks",
+  demo:"Demo",
+  sale:"Sale",
+  search:"Search..."
+
+};
+
+ 
+
+export { formTitle, tableTitle, tableData,leadsConst };

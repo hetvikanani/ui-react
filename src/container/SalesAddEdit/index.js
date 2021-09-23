@@ -17,7 +17,9 @@ import {
   PackageCard,
 } from "components/Form";
 import { copy } from "components/Images";
-import { PageConst, ButtonConstant } from "App/AppConstant";
+// import { PageConst, ButtonConstant } from "App/AppConstant";
+import { salesAddConstant } from "./constant";
+
 import { MonthlyData, AnnualData, CardData } from "./constant";
 const select = ["kartik", "Amar"];
 const ValidationSchema = Yup.object().shape({
@@ -39,7 +41,7 @@ class SelseAddEdit extends Component {
       subType: false,
       gstError: false,
       btnDisable: false,
-      genLicence: false,
+      genLicence: false,     
       licenseId: "45ABc551",
       initValues: {
         lead: "",
@@ -120,9 +122,15 @@ class SelseAddEdit extends Component {
   };
   copyCode = () => {
     try {
-      const { licenseId, btnDisable } = this.state;
-      navigator.clipboard.writeText(licenseId);
-      message.success("Code Copied");
+      const { licenseId, btnDisable } = this.state;      
+      if(btnDisable === false){
+        navigator.clipboard.writeText(licenseId);
+        message.success("Code Copied");
+        this.setState({ btnDisable: true });
+        setTimeout(() => {
+          this.setState({ btnDisable: false });
+        }, 4500);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -160,7 +168,7 @@ class SelseAddEdit extends Component {
                         <Row gutter={20}>
                           <Col xs={24} sm={24} md={24} lg={12} xl={8}>
                             <div className="field">
-                              <Label title={PageConst.lead} />
+                              <Label title={salesAddConstant.lead} />
                               {values.lead === "" &&
                                 this.selectUI(
                                   "",
@@ -177,9 +185,9 @@ class SelseAddEdit extends Component {
                                 )}
                             </div>
                           </Col>
-                          <Col xs={24} sm={24} md={24} lg={12} xl={8}>
+                          <Col xs={24} sm={24} md={24} lg={12} xl={ gstType?8:16}>
                             <div className="field">
-                              <Label title={PageConst.gstType} />
+                              <Label title={salesAddConstant.gstType} />
                               <div className="switchDiv">
                                 <RoundSwitch
                                   left="Not Registered"
@@ -192,10 +200,17 @@ class SelseAddEdit extends Component {
                               </div>
                             </div>
                           </Col>
+                          {gstType && (
                           <Col xs={24} sm={24} md={24} lg={12} xl={8}>
-                            {gstType && (
                               <div className="field">
-                                <Label title={PageConst.gstno} />
+                                <Label title={salesAddConstant.gstno} 
+                                className={
+                                  (errors.gstNo && touched.gstNo) ||
+                                  (gstError && values.gstNo === "")
+                                    ? "empty"
+                                    : ""
+                                }
+                                />
                                 <Input
                                   className={
                                     (errors.gstNo && touched.gstNo) ||
@@ -214,11 +229,11 @@ class SelseAddEdit extends Component {
                                   </div>
                                 )}
                               </div>
-                            )}
                           </Col>
+                            )}
                           <Col xs={24} sm={24} md={24} lg={12} xl={8}>
                             <div className="field">
-                              <Label title={PageConst.pro} />
+                              <Label title={salesAddConstant.product} />
                               {values.product === "" &&
                                 this.selectUI(
                                   "",
@@ -235,9 +250,11 @@ class SelseAddEdit extends Component {
                                 )}
                             </div>
                           </Col>
-                          <Col xs={24} sm={24} md={24} lg={12} xl={8}>
+                         {values.product !== "" && (
+                         <>
+                         <Col xs={24} sm={24} md={24} lg={12} xl={8}>
                             <div className="field">
-                              <Label title={PageConst.subType} />
+                              <Label title={salesAddConstant.subType} />
                               <div className="switchDiv">
                                 <RoundSwitch
                                   left="MONTHLY"
@@ -253,7 +270,7 @@ class SelseAddEdit extends Component {
                           </Col>
                           <Col xs={24} sm={24} md={24} lg={12} xl={8}>
                             <div className="field">
-                              <Label title={PageConst.timePer} />
+                              <Label title={salesAddConstant.timePeriod} />
                               {values.timePeriod === "" &&
                                 this.selectUI(
                                   "",
@@ -270,11 +287,13 @@ class SelseAddEdit extends Component {
                                 )}
                             </div>
                           </Col>
-                          {values.product !== "" && this.packageUI()}
+                          {this.packageUI()}
+                          </>
+                          )}
                         </Row>
                         {genLicence && (
                           <div className="licenceDiv">
-                            <p>{PageConst.liceId} </p>
+                            <p>{salesAddConstant.liceId} </p>
                             <h2>{licenseId}</h2>
                             <div className="icon pointer">
                               <Image
@@ -287,20 +306,18 @@ class SelseAddEdit extends Component {
                           </div>
                         )}
 
-                        <div className="btnDiv">
-                          {genLicence === false && (
+                        <div className="btnDiv">                         
+                          {!genLicence ?
                             <Button
-                              type="button"
                               onClick={this.generateLicence}
                             >
-                              {ButtonConstant.genLicence}
+                              {salesAddConstant.genLicence}
                             </Button>
-                          )}
-                          {genLicence && (
+                            :
                             <Button type="submit">
-                              {ButtonConstant.payment}
+                              {salesAddConstant.payment}
                             </Button>
-                          )}
+                          }
                         </div>
                       </Form>
                     )}

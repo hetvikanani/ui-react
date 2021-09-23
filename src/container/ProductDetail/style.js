@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { size } from "App/device";
-import { Theme } from "App/theme";
 
 const ProDetailstyle = styled.div`
   height: 100vh;
@@ -8,11 +6,11 @@ const ProDetailstyle = styled.div`
   background: #f8f9fa;
   display: flex;
   .allDiv {
-    padding: 1%;
+    padding: 1em;
     .boxDiv {
       margin-top: 2%;
       padding: 1%;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
     }
     p {
       font-size: 14px;
@@ -29,8 +27,8 @@ const ProDetailstyle = styled.div`
 
     .Feature-card {
       text-align: center;
-      margin-top: 15%;
-      width: 194px;
+      margin-top: 3em; 
+      border-radius: 5px;     
       .img-div {
         border: 1px solid orange;
         height: 3em;
@@ -60,42 +58,13 @@ const ProDetailstyle = styled.div`
         justify-content: center;
       }
       .Card-Div {
-        text-align: center;
-        margin-top: 20px;
-        padding: 20px;
-        .card-prop {
-          height: 24rem;
-        }
-        li {
-          padding-top: 8px;
-        }
-        .amount-box {
-          background: radial-gradient(
-            circle,
-            rgba(67, 137, 195, 1) 0%,
-            rgba(22, 84, 139, 1) 79%
-          );
-          height: 50px;
-          border-radius: 10px;
-          padding: 6px;
-          color: white;
-          font-size: 22px;
-          font-weight: bold;
-          .month-txt {
-            font-size: 14px;
-          }
-        }
-        .list-name {
-          list-style-position: outside;
-          text-align: left;
-          min-height: 15em;
-        }
+        margin-top: 3em;      
       }
     }
     .box5 {
       .boxDiv {
         .pdfIcon {
-          box-shadow: 0 1px 3px rgb(0, 0, 0, 0.12), 0 1px 2px rgb(0, 0, 0, 0.24);
+          box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
           width: 1.5em;
           color: #16548b;
           font-size: 50px;
@@ -117,7 +86,7 @@ const ProDetailstyle = styled.div`
 
         .react-multi-carousel-dot button {
           display: inline-block;
-          margin-right: 0px;
+          margin-right: 0;
           margin: 0 5px;
         }
         .ant-image-img {

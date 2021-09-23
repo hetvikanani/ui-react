@@ -5,7 +5,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
 import { LeadsStyle } from "./style";
-import { formTitle, tableTitle, tableData } from "./constant";
+import { formTitle, tableTitle, tableData, leadsConst } from "./constant";
 import {
   Menu,
   Header,
@@ -17,7 +17,7 @@ import {
   Switch,
   Table,
 } from "components/Form";
-import { PageConst, ButtonConstant, FormValidation } from "App/AppConstant";
+import {  ButtonConstant, FormValidation } from "App/AppConstant";
 const select = ["kartik", "Amar"];
 const ProspectSchema = Yup.object().shape({
   custName: Yup.string().trim().min(3, FormValidation.nameMin).required(" "),
@@ -66,6 +66,7 @@ class Leads extends Component {
         <Select
           data={select}
           value={val}
+          defaultValue={val}
           selectClass={error ? "empty" : ""}
           onChange={(value) => {
             setFieldValue(name, value);
@@ -129,7 +130,7 @@ class Leads extends Component {
                         <div className="inputDiv">
                           <div className="field">
                             <Label
-                              title={PageConst.cusName}
+                              title={leadsConst.cusName}
                               className={
                                 errors.custName && touched.custName
                                   ? "empty"
@@ -137,7 +138,7 @@ class Leads extends Component {
                               }
                             />
                             <Input
-                              placeholder={PageConst.name}
+                              placeholder={leadsConst.name}
                               className={
                                 errors.custName && touched.custName
                                   ? "empty"
@@ -157,13 +158,13 @@ class Leads extends Component {
                           </div>
                           <div className="field">
                             <Label
-                              title={PageConst.mobile}
+                              title={leadsConst.mobile}
                               className={
                                 errors.mobile && touched.mobile ? "empty" : ""
                               }
                             />
                             <Input
-                              placeholder={PageConst.number}
+                              placeholder={leadsConst.number}
                               className={
                                 errors.mobile && touched.mobile ? "empty" : ""
                               }
@@ -180,13 +181,13 @@ class Leads extends Component {
                           </div>
                           <div className="field">
                             <Label
-                              title={PageConst.emid}
+                              title={leadsConst.emid}
                               className={
                                 errors.email && touched.email ? "empty" : ""
                               }
                             />
                             <Input
-                              placeholder={PageConst.email}
+                              placeholder={leadsConst.email}
                               className={
                                 errors.email && touched.email ? "empty" : ""
                               }
@@ -201,9 +202,9 @@ class Leads extends Component {
                             )}
                           </div>
                           <div className="field">
-                            <Label title={PageConst.address} />
+                            <Label title={leadsConst.address} />
                             <Input
-                              placeholder={PageConst.address}
+                              placeholder={leadsConst.address}
                               row={1}
                               name="address"
                               value={values.address}
@@ -212,7 +213,7 @@ class Leads extends Component {
                             />
                           </div>
                           <div className={"btn_div"}>
-                            <Button type="submit">{ButtonConstant.save}</Button>
+                            <Button type="submit">{leadsConst.save}</Button>
                           </div>
                         </div>
                       </Form>
@@ -240,14 +241,20 @@ class Leads extends Component {
                         <div className="inputDiv">
                           <div className="field">
                             <Label
-                              title={PageConst.cusSelect}
+                              title={leadsConst.cusSelect}
                               className={
                                 errors.custSelect && touched.custSelect
                                   ? "empty"
                                   : ""
                               }
                             />
-                            {this.selectUI(
+                            { values.custSelect==="" && this.selectUI(
+                              "",
+                              "custSelect",
+                              setFieldValue,
+                              errors.custSelect && touched.custSelect
+                            )}
+                            { values.custSelect!==""&& this.selectUI(
                               values.custSelect,
                               "custSelect",
                               setFieldValue,
@@ -255,8 +262,13 @@ class Leads extends Component {
                             )}
                           </div>
                           <div className="field">
-                            <Label title={PageConst.lt} />
-                            {this.selectUI(
+                            <Label title={leadsConst.leadType} />
+                            {values.leadType ==="" && this.selectUI(
+                              "",
+                              "leadType",
+                              setFieldValue
+                            )}
+                            {values.leadType !=="" &&this.selectUI(
                               values.leadType,
                               "leadType",
                               setFieldValue
@@ -264,7 +276,7 @@ class Leads extends Component {
                           </div>
                           <div className="field">
                             <Label
-                              title={PageConst.pro}
+                              title={leadsConst.product}
                               className={
                                 errors.product && touched.product ? "empty" : ""
                               }
@@ -280,9 +292,9 @@ class Leads extends Component {
                             />
                           </div>
                           <div className="field">
-                            <Label title={PageConst.rem} />
+                            <Label title={leadsConst.remarks} />
                             <Input
-                              placeholder={PageConst.rem}
+                              placeholder={leadsConst.remarks}
                               row={1}
                               name="address"
                               value={values.address}
@@ -290,7 +302,7 @@ class Leads extends Component {
                             />
                           </div>
                           <div className="btn_div">
-                            <Button type="submit">{ButtonConstant.save}</Button>
+                            <Button type="submit">{leadsConst.save}</Button>
                           </div>
                         </div>
                       </Form>
@@ -318,14 +330,20 @@ class Leads extends Component {
                         <div className="inputDiv">
                           <div className="field">
                             <Label
-                              title={PageConst.cusName}
+                              title={leadsConst.cusName}
                               className={
                                 errors.cusNameDemo && touched.cusNameDemo
                                   ? "empty"
                                   : ""
                               }
                             />
-                            {this.selectUI(
+                            {values.cusNameDemo ==="" &&this.selectUI(
+                              "",
+                              "cusNameDemo",
+                              setFieldValue,
+                              errors.cusNameDemo && touched.cusNameDemo
+                            )}
+                            {values.cusNameDemo !=="" &&this.selectUI(
                               values.cusNameDemo,
                               "cusNameDemo",
                               setFieldValue,
@@ -333,14 +351,14 @@ class Leads extends Component {
                             )}
                           </div>
                           <div className="field">
-                            <Label title={PageConst.demo} />
+                            <Label title={leadsConst.demo} />
                             <Switch
                               checked={demo}
                               handleChange={() => this.switchChange("demo")}
                             />
                           </div>
                           <div className="field">
-                            <Label title={PageConst.sale} />
+                            <Label title={leadsConst.sale} />
                             <Switch
                               checked={sale}
                               handleChange={() => this.switchChange("sale")}
@@ -348,7 +366,7 @@ class Leads extends Component {
                           </div>
 
                           <div className="demoBtndiv">
-                            <Button type="submit">{ButtonConstant.save}</Button>
+                            <Button type="submit">{leadsConst.save}</Button>
                           </div>
                         </div>
                       </Form>
@@ -374,7 +392,7 @@ class Leads extends Component {
               <div className="tableDiv">
                 <div className="search_div">
                   <Input
-                    placeholder={PageConst.search}
+                    placeholder={leadsConst.search}
                     suffix={<SearchOutlined />}
                   />
                 </div>

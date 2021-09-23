@@ -17,7 +17,7 @@ class PackageCard extends Component {
     }
   };
   render() {
-    const { data, period } = this.props;
+    const { data, period, checked} = this.props;
     return (
       <PackageStyle>
         <div className="cardDiv">
@@ -27,7 +27,7 @@ class PackageCard extends Component {
           <div className="priceDiv">
             <i className="fas fa-rupee-sign"></i>
             <h1>
-              {data.amount + "/"}
+              { checked?data.amount2 + "/":data.amount + "/"}
               <sub className="month-txt">{period}</sub>
             </h1>
           </div>

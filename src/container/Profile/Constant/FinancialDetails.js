@@ -4,7 +4,7 @@ import { Row, Col } from "antd";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { ProfileStyle } from "../style";
-import { FinancialConst } from "../ProfileConstant";
+import { FinancialConst } from "../constant";
 
 const ValidationSchema = Yup.object().shape({
   bank_name: Yup.string().trim().required(" "),
@@ -65,7 +65,7 @@ export default class FinancialDetails extends Component {
     const { initState } = this.state;
 
     return (
-      <ProfileStyle>
+      
         <div>
           <Formik
             initialValues={initState}
@@ -240,14 +240,14 @@ export default class FinancialDetails extends Component {
                     ></Select>
                   </Col>
                 </Row>
-                <div className="button">
+                <div className="btnDiv">
                   <Button type="submit">Update</Button>
                 </div>
               </Form>
             )}
           </Formik>
         </div>
-      </ProfileStyle>
+     
     );
   }
 }

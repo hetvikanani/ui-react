@@ -24,7 +24,7 @@ const FormWrapper = styled.div`
     border: 0;
     background: white;
     height: 22px;
-    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     &.ant-switch-checked:after {

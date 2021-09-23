@@ -2,16 +2,17 @@ import styled from "styled-components";
 
 const StyleContainer = styled.div`
 .ant-collapse{
+  border: 1px solid #ffff;
   .ant-collapse-item {
     background-color:#16548B;
     border: none;
     margin-bottom: 1.5rem;
     .ant-collapse-header {
-      color: white;
+      color: #fff;
     }
   }
   .ant-collapse-arrow {
-    color: white;
+    color: #fff;
   }
 }
 `;

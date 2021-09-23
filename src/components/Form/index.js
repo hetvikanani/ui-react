@@ -17,6 +17,13 @@ import RoundSwitch from "components/RoundSwitch";
 import Collapse from "components/Collapse";
 import FileUpload from "components/FileUpload";
 import PackageCard from "components/PackageCard";
+import ImageCard from "components/ImageCard";
+import UserInfo from "components/UserInfo";
+import UserRole from "components/UserRole";
+import ContactDetails from "components/ContactDetails";
+import BasicDetails from "components/BasicDetails";
+import FinancialDetails from "components/FinancialDetails";
+import ProAddEditDetail from "components/ProAddEditDetail";
 
 export {
   Button,
@@ -38,4 +45,11 @@ export {
   Collapse,
   FileUpload,
   PackageCard,
+  ImageCard,
+  UserInfo,
+  UserRole,
+  ContactDetails,
+  BasicDetails,
+  FinancialDetails,
+  ProAddEditDetail,
 };

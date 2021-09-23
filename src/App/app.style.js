@@ -22,6 +22,9 @@ body {
   overflow-y: auto;
   width:100%;
 }
+.center{
+  text-align: center;
+}
 overflow-y: scroll;
 overflow-x: hidden;
 scrollbar-color: transparent;
@@ -64,9 +67,9 @@ h1, h2, h3, h4, h5, h6 {
     margin-left: auto;
     display: block;
     border-radius: 10px;
-    @media ${size["tablet-md-max"]} {       
-      margin: auto;    
-    }
+    // @media ${size["tablet-md-max"]} {       
+    //   margin: auto;    
+    // }
     span {
       margin-right: 5px;
     }

@@ -11,5 +11,10 @@ const topRowData = [
     {li:"001",cn:"Amar",st:"monthly",ei:"2021"},
     {li:"001",cn:"Amar",st:"monthly",ei:"2021"},
 ];
-  export { topRowData, tableData};
+const salesConstant = {
+  saleslist:"Sales List",
+  addSale:"Add New Sales",
+};
+
+export { topRowData, tableData,salesConstant};
   

@@ -5,6 +5,25 @@ const ProductStyle = styled.div`
   display: flex;
   .allDiv {
     padding: 3em 1em 1em;
+    .headDiv{
+      display: flex;
+      .addButton {
+        margin-right: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 25px;
+        background-color: ${Theme.mainColor};
+        color: #ffff;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        stroke: white;
+        stroke-width: 3em;
+      }
+    }
     .products_div {
       .ant-col {
         margin-top: 4rem;
@@ -18,6 +37,7 @@ const ProductStyle = styled.div`
             position: relative;
             padding: 1em;
             .head-box {
+              cursor: pointer;
               padding: 10px 20px 4px;
               border-radius: 20px 0 20px;
               position: absolute;
@@ -51,6 +71,22 @@ const ProductStyle = styled.div`
               line-height: 22px;
               color: #676767;
               font-weight: 400;
+            }
+            .actionDiv {
+              display: flex;
+              justify-content: center;
+
+              .acLogDiv {
+                height: 2em;
+                width: 2em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0 0.3em;
+                :hover{
+                  background-color: #e4e4e4;
+                }
+              }
             }
             .vizLogo {
               background-color: #ff944c;

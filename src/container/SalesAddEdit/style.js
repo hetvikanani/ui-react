@@ -21,11 +21,14 @@ const SelseAddEditStyle = styled.div`
     }
     .ant-card-body {
       padding: 0 15px 15px;
-      .field {
-        margin-top: 2em;
-        .switchDiv {
-          .text:first-child {
-            margin-left: 0;
+      .ant-col {
+        min-height: 7em;
+        .field {
+          margin-top: 2em;
+          .switchDiv {
+            .text:first-child {
+              margin-left: 0;
+            }
           }
         }
       }
@@ -60,7 +63,7 @@ const SelseAddEditStyle = styled.div`
         background-color: #16548b;
         display: flex;
         justify-content: center;
-      align-items: center;
+        align-items: center;
       }
     }
   }

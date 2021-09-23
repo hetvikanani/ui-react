@@ -60,7 +60,7 @@ const FormWrapper = styled.div`
   .ant-input,
   .ant-input-password {
     border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0px;
+    border-radius: 0;
     color: #b5b5b5;
   }
   .ant-input-password {
@@ -74,7 +74,10 @@ const FormWrapper = styled.div`
   }
   .empty {
     border: 1px solid #e81c1c;
-    box-shadow: 0px 0px 10px red !important;
+    box-shadow: 0 0 10px red !important;
+  }
+  .empty-field{
+    border: 1px solid #e81c1c;
   }
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
@@ -91,7 +94,7 @@ const FormWrapper = styled.div`
   //   border-color: rgb(216 26 26) !important;
   // }
   // .ant-input-suffix {
-  //   padding: 0 0px;
+  //   padding: 0 0;
   //   color: #18558A;
   // }
 `;

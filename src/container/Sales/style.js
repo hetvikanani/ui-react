@@ -16,7 +16,7 @@ const SelesStyle = styled.div`
           padding-right: 0 !important;
         }
         .box {
-          box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+          box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
           border-top-left-radius: 15px;
           border-bottom-right-radius: 15px;
           border-bottom: 5px solid #ffff;
@@ -40,7 +40,7 @@ const SelesStyle = styled.div`
               margin: auto 0;
               .name {
                 color: ${Theme.mainColor};
-                margin: 0px 0 0 10px;
+                margin: 0 0 0 10px;
               }
               .number {
                 font-weight: 600;

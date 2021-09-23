@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Input, Label, Button } from "components/Form";
 import { Row, Col, Divider } from "antd";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { ProfileStyle } from "../style";
-import { ContactConst } from "../ProfileConstant";
+
+import { Input, Label, Button } from "components/Form";
+import { ContactConst } from "../constant";
 
 const ValidationSchema = Yup.object().shape({
   contact_name: Yup.string()
@@ -52,8 +52,7 @@ export default class ContactDetails extends Component {
   render() {
     const { initState } = this.state;
 
-    return (
-      <ProfileStyle>
+    return (    
         <div>
           <Formik
             initialValues={initState}
@@ -71,6 +70,7 @@ export default class ContactDetails extends Component {
             }) => (
               <Form onSubmit={handleSubmit}>
                 <Row gutter={24}>
+               
                   <Col xs={24} sm={24} md={12} lg={8} xl={8}>
                     <Label
                       title={ContactConst.contact_name}
@@ -144,16 +144,15 @@ export default class ContactDetails extends Component {
                     <Label title={ContactConst.designation}></Label>
                     <Input placeholder={ContactConst.designationplace}></Input>
                   </Col>
-                </Row>
-                <div className="button">
+                 </Row>
+                <div className="btnDiv">
                   <Button type="submit">Save</Button>
                 </div>
               </Form>
             )}
           </Formik>
           <Divider />
-        </div>
-      </ProfileStyle>
+        </div>     
     );
   }
 }

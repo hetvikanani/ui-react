@@ -2,9 +2,12 @@ import styled from "styled-components";
 import { Theme } from "App/theme";
 const PackageStyle = styled.div`
   .cardDiv {
-    box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
     padding: 1em;
     border-radius: 8px;
+    :hover{
+      box-shadow: 0 0 10px rgb(0, 0, 0, 0.4);
+    }
     .headingDiv {
       text-align: center;
       margin-top: 0.5em;
@@ -25,7 +28,7 @@ const PackageStyle = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
+      color: #fff;
       .fas {
         font-size: 1.5em;
         margin-right: 8px;

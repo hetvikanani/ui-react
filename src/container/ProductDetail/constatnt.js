@@ -23,16 +23,16 @@ const FeaturesData = [
 const MonthlyData = [
   {
     heading: "Silver",
-    amount: " 499/",
-    amount2: "1433/",
+    amount: " 499",
+    amount2: "1433",
     li_1: "300 Invitees/month",
     li_2: "20 No.Of Employees",
     li_3: "Tickets",
   },
   {
     heading: " Gold",
-    amount: "1499/",
-    amount2: "1433/",
+    amount: "1499",
+    amount2: "1433",
     li_1: "500 Invitees/month",
     li_2: "50 No.Of Employees",
     li_3: "Tickets",
@@ -41,8 +41,8 @@ const MonthlyData = [
   },
   {
     heading: "Platinum",
-    amount: "2499/",
-    amount2: "1439/",
+    amount: "2499",
+    amount2: "1439",
     li_1: "1200 Invitees/month",
     li_2: "1200 No.Of Employees",
     li_3: "Tickets",

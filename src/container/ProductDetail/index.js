@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Carousel from "react-multi-carousel";
-import { Menu, RoundSwitch, Button, Header } from "components/Form";
-import { vizman, iPing, act, eAuction, eVoting, ezeo } from "components/Images";
 import { Row, Col, Image, Card } from "antd";
-import { ProDetailstyle } from "./style";
-import { FeaturesData, MonthlyData, CarouselData } from "./constatnt";
 import { FilePdfFilled } from "@ant-design/icons";
 import "react-multi-carousel/lib/styles.css";
+
+import { Menu, RoundSwitch,Header,PackageCard } from "components/Form";
+import { vizman, iPing, act, eAuction, eVoting, ezeo } from "components/Images";
+import { ProDetailstyle } from "./style";
+import { FeaturesData, MonthlyData, CarouselData } from "./constatnt";
 
 const responsive = {
   superLargeDesktop: {
@@ -50,7 +51,7 @@ export default class ProductDetails extends Component {
   featureUI = () => {
     try {
       return FeaturesData.map((a, i) => (
-        <Col xs={24} sm={12} md={12} lg={12} xl={6}>
+        <Col xs={24} sm={12} md={12} lg={12} xl={6} key={i}>
           <Card hoverable className="Feature-card">
             <div className="img-div">
               <Image src={a.img} preview={false} />
@@ -68,31 +69,8 @@ export default class ProductDetails extends Component {
     try {
       const { checked } = this.state;
       return MonthlyData.map((a, i) => (
-        <Col xs={24} sm={12} md={12} lg={12} xl={8}>
-          <Card hoverable className="card-prop">
-            <h2 className="blue-head">{a.heading}</h2>
-            <div className="amount-box">
-              <i className="fas fa-rupee-sign"> </i>
-              {checked ? a.amount : a.amount2}
-              <span className="month-txt">month</span>
-            </div>
-            <div className="list-name">
-              <ul className="">
-                <li>{a.li_1}</li>
-                <li>{a.li_2}</li>
-                <li>{a.li_3}</li>
-                {a.heading !== "Silver" && (
-                  <>
-                    <li>{a.li_4}</li>
-                    <li>{a.li_5}</li>
-                  </>
-                )}
-              </ul>
-            </div>
-            <div>
-              <Button className="btn-div">Select</Button>
-            </div>
-          </Card>
+        <Col xs={24} sm={24} md={24} lg={8} xl={8} key={i}>
+           <PackageCard data={a} period="Month"  checked={checked}/>
         </Col>
       ));
     } catch (error) {
@@ -102,7 +80,7 @@ export default class ProductDetails extends Component {
   carouselUI = () => {
     try {
       return CarouselData.map((a, i) => (
-        <div className="carousel-img">
+        <div className="carousel-img" key ={i}>
           <Image src={a} preview={false} />
         </div>
       ));
@@ -184,7 +162,7 @@ export default class ProductDetails extends Component {
             <div className="boxDiv">
               <h3 className="txtHead">Features</h3>
               <div>
-                <Row>{this.featureUI()} </Row>
+                <Row gutter ={20}>{this.featureUI()} </Row>
               </div>
             </div>
 

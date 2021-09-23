@@ -10,7 +10,7 @@ const LeadsStyle = styled.div`
       border: 1px solid rgba(0, 0, 0, 0.125);
       .ant-card-head {
         border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-        padding: 0px 10px;
+        padding: 0 10px;
         background-color: #f8f9fa;
         .ant-card-head-title {
           padding: 5px 0;

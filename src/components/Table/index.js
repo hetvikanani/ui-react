@@ -1,9 +1,23 @@
 import React, { Component } from "react";
 import TableStyle from "./style";
 import { Table, Image } from "antd";
+import {
+  DashOutlined,
+} from "@ant-design/icons";
 
-import { editPen, deleteImg, infoImg } from "components/Images";
+import {
+  editPen,
+  deleteImg,
+  infoImg,
+  view,
+  edit,
+  wallet,
+  prospect,
+  sales,
+  deleteSvg,
+} from "components/Images";
 import { PageConst } from "App/AppConstant";
+import { RenderDrop } from "components/Form";
 
 const { Column } = Table;
 
@@ -15,12 +29,76 @@ class TableUI extends Component {
     };
   }
   handleTable = (pagination) => this.setState({ pagination });
+  StatusUI = (record) => {
+    try {
+      return (
+        <div className="statusUI">
+          <span className={record.status ? "green" : "red"}>
+            {record.status ? "Active" : "Deactive"}
+          </span>
+        </div>
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  adminActUI = (img, text) => {
+    try {
+      return (
+        <>
+          <Image src={img} preview={false} width={15} />
+          <span className="text">{text}</span>
+        </>
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  adminActionUI = (record, type) => {
+    try {
+      return (
+        <div className="actionUI">
+          <RenderDrop item={<DashOutlined className="dash" />}>
+            {type === "partners" && (
+              <div className="actionBtn" onClick={() => this.props.view()}>
+                {this.adminActUI(view, PageConst.view)}
+              </div>
+            )}
+            <div className="actionBtn" onClick={() => this.props.edite()}>
+              {this.adminActUI(edit, PageConst.edit)}
+            </div>
+            {type === "partners" && (
+              <>
+                <div className="actionBtn" onClick={() => this.props.wallet()}>
+                  {this.adminActUI(wallet, PageConst.wallet)}
+                </div>
+                <div
+                  className="actionBtn"
+                  onClick={() => this.props.prospect()}
+                >
+                  {this.adminActUI(prospect, PageConst.prospect)}
+                </div>
+                <div className="actionBtn" onClick={() => this.props.sales()}>
+                  {this.adminActUI(sales, PageConst.sales)}
+                </div>
+              </>
+            )}
+            <div className="actionBtn" onClick={() => this.props.delete()}>
+              {this.adminActUI(deleteSvg, PageConst.delete)}
+            </div>
+          </RenderDrop>
+        </div>
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   action = (record, type) => {
     try {
       return (
         <div className="actionUI">
-          <div className="info_box">
+          <div>
             <Image
               className="pointer"
               src={infoImg}
@@ -36,7 +114,7 @@ class TableUI extends Component {
               width={13}
             />
           </div>
-          <div className="delete_box">
+          <div>
             <Image
               className="pointer"
               src={deleteImg}
@@ -79,10 +157,64 @@ class TableUI extends Component {
               <Column title={PageConst.expIn} dataIndex={"ei"} />
             </>
           )}
-          <Column
-            title={PageConst.action}
-            render={(record, i) => this.action(record, type)}
-          />
+          {type === "wallet" && (
+            <>
+              <Column title={"Transaction ID"} dataIndex={"key"} />
+              <Column title={"Details"} dataIndex={"details"} />
+              <Column title={"Transaction Type"} dataIndex={"trType"} />
+              <Column title={"Date"} dataIndex={"date"} />
+              <Column title={"Amount"} dataIndex={"amount"} />
+            </>
+          )}
+          {(type === "partners" || type === "userList") && (
+            <>
+              <Column
+                title={PageConst.srNo}
+                dataIndex={"key"}
+                className="center"
+              />
+              {type === "partners" && (
+                <>
+                  <Column
+                    title={"Partner"}
+                    dataIndex={"partnername"}
+                    className="center"
+                  />
+                  <Column
+                    title={PageConst.status}
+                    className="center"
+                    render={(record) => this.StatusUI(record)}
+                  />
+                </>
+              )}
+              {type === "userList" && (
+                <>
+                  <Column
+                    title={"User Name"}
+                    dataIndex={"username"}
+                    className="center"
+                  />
+                  <Column
+                    title={"Email id"}
+                    dataIndex={"emailid"}
+                    className="center"
+                  />
+                </>
+              )}
+              <Column
+                className="center"
+                title={PageConst.action}
+                render={(record, i) => this.adminActionUI(record, type)}
+              />
+            </>
+          )}
+
+          {type !== "wallet" && type !== "partners" && type !== "userList" && (
+            <Column
+              title={PageConst.action}
+              render={(record, i) => this.action(record, type)}
+            />
+          )}
         </>
       );
     } catch (error) {

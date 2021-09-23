@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Row, Col, Card,InputNumber, Table} from "antd";
+import { Row, Col, Card ,InputNumber} from "antd";
 
 import { WalletStyle } from "./style";
-import { Menu, Button, Header, Input } from "components/Form";
+import { Menu, Button, Header, Input, Table } from "components/Form";
 import { topRowData, tableData } from "./constatnt";
 import { PageConst } from "App/AppConstant";
 
-const onSearch = (value) => console.log(value);
 
+// const onSearch = (value) => console.log(value);
 class Salse extends Component {
   constructor() {
     super();
@@ -22,51 +22,42 @@ class Salse extends Component {
   onChange = (value) => {
     console.log("changed", value);
   };
-  handleAddMoney = (e) => {
-    try {
-      this.setState({
-        addMoney: e,
-        addMoneyError: false,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  handleWithdraw = (e) => {
-    try {
-      this.setState({
-        withDraw: e,
-        withDrawError: false,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
   handleSubmit = (a) => {
     try {
       const { addMoney, withDraw } = this.state;
       this.setState({ submitClicked: true });
       let flag = false;
-      if (a == "Add Money") {
+      if (a === "Add Money") {
         if (addMoney.toString() === "") {
           this.setState({ addMoneyError: true });
           flag = true;
         }
       }
-      if (a == "Withdraw") {
+      if (a === "Withdraw") {
         if (withDraw.toString() === "") {
           this.setState({ withDrawError: true });
           flag = true;
         }
       } else {
       }
-      
     } catch (error) {
       console.log(error);
     }
   };
   handleInput = (name, val) => {
-    this.setState({ [name]: val });
+    const { addMoneyError, withDrawError } = this.state;
+    try {
+      this.setState({
+        [name]: val,
+        addMoneyError:
+          name === "addMoney" && val.trim().length > 0 ? false : addMoneyError,
+        withDrawError:
+          name === "withDraw" && val.trim().length > 0 ? false : withDrawError,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   topRowUi = () => {
     try {
@@ -74,38 +65,36 @@ class Salse extends Component {
       return topRowData.map((a, i) => (
         <Col xs={24} sm={24} md={24} lg={24} xl={8} key={i}>
           <Card className="box">
-            <h5 className="name">{a.name}</h5>
+            <h3 className="name">{a.name}</h3>
+            <div className="input-div">
             {i === 0 && <h1 className="mark">{a.value}</h1>}
-            {i !== 0 && (
-              <div className="input-div">
-                <Input
-                  autocomplete={"off"}
+              {i !== 0 && (<>
+                <Input                  
                   className={`inputBox ${
-                    a.name == "Add Money" && addMoneyError
-                      ? "txtError"
-                      : "" || (a.name == "Withdraw" && withDrawError)
-                      ? "txtError"
+                    a.name === "Add Money" && addMoneyError
+                      ? "empty-field"
+                      : "" || (a.name === "Withdraw" && withDrawError)
+                      ? "empty-field"
                       : ""
                   }  `}
-                  value={a.name == "Add Money" ? addMoney : withDraw}
+                  value={a.name === "Add Money" ? addMoney : withDraw}
                   type="number"
                   handleChange={(e) => {
                     this.handleInput(
-                      a.name == "Add Money" ? "addMoney" : "withDraw",
+                      a.name === "Add Money" ? "addMoney" : "withDraw",
                       e.target.value
                     );
                   }}
-                  suffix={
-                    <Button
-                      className="btn-head"
-                      onClick={() => this.handleSubmit(a.name)}
-                    >
-                      {a.name}
-                    </Button>
-                  }
                 />
+                <Button
+                  className="btn-head"
+                  onClick={() => this.handleSubmit(a.name)}
+                >
+                  {a.name}
+                </Button>
+                </>
+                )} 
               </div>
-            )}{" "}
           </Card>
         </Col>
       ));
@@ -117,13 +106,13 @@ class Salse extends Component {
     try {
       return (
         <>
-          <span className="show">Show</span>
+          <span>Show</span>
           <InputNumber
             min={1}
             max={100000}
-            defaultValue={3}
+            // defaultValue={3}
             onChange={this.onChange}
-          />{" "}
+          />
           <span className="entries">entries</span>
         </>
       );
@@ -134,9 +123,7 @@ class Salse extends Component {
   SearchUI = () => {
     try {
       return (
-        <div>
-          <Input placeholder={PageConst.search} className="serachBox" />
-        </div>
+          <Input placeholder={PageConst.search}/>
       );
     } catch (error) {
       console.log(error);
@@ -149,19 +136,16 @@ class Salse extends Component {
         <Menu />
         <div className="container">
           <Header />
-          <div className="allDiv">
-            <div className="">
-              <Row gutter={40}>{this.topRowUi()}</Row>
-            </div>
-            <div className="boxDiv">
+          <div className="allDiv">            
+              <Row gutter={20}>{this.topRowUi()}</Row>
+              <div className="boxDiv">
               <h2>Transaction History</h2>
               <div className="inputNum-div">
-                <div> {this.inputNumberUi()} </div>
-                <div>{this.SearchUI()}</div>
+                <div className = "inputDiv"> {this.inputNumberUi()} </div>               
+                <div className = "searchDiv">{this.SearchUI()}</div>
               </div>
-
               <div className="table-div">
-                <Table data={tableData} type="wallet" />
+                <Table data={tableData} type="wallet" size={10} />
               </div>
               <div>
                 <p className="last-para">Showing 1 to 3 of 3 entries </p>

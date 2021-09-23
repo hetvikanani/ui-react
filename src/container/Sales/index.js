@@ -6,7 +6,9 @@ import { SelesStyle } from "./style";
 import { Menu, Header, Table } from "components/Form";
 import { topRowData, tableData } from "./constant";
 import { license, exhaustedLicense, expires } from "components/Images";
-import { PageConst } from "App/AppConstant";
+// import { PageConst } from "App/AppConstant";
+import { salesConstant } from "./constant";
+
 
 class Sales extends Component {
   topRowUi = () => {
@@ -50,11 +52,11 @@ class Sales extends Component {
             <Row gutter={40}>{this.topRowUi()}</Row>
             <div className="salesListDiv">
               <div className="headerDiv">
-                <h2>{PageConst.saleslist}</h2>
+                <h2>{salesConstant.saleslist}</h2>
                 <div className="adsDiv">
                   <div className="btn" onClick={() => this.props.history.push("/add-new-sales")}>
                     <PlusOutlined />
-                    {PageConst.addNeSal}
+                    {salesConstant.addSale}
                   </div>
                 </div>
               </div>

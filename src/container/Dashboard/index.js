@@ -12,13 +12,20 @@ class DashBoard extends Component {
     super(props);
     this.state = {
       ReferCode: "51415614566",
+      copyDisable:false,
     };
   }
   copyCode = () => {
     try {
-      const { ReferCode } = this.state;
-      navigator.clipboard.writeText(ReferCode);
-      message.success("Code Copied");
+      const { ReferCode,copyDisable } = this.state;
+      if(copyDisable === false){
+        navigator.clipboard.writeText(ReferCode);
+        message.success("Code Copied");
+        this.setState({ copyDisable: true });
+        setTimeout(() => {
+          this.setState({ copyDisable: false });
+        }, 4500);
+      }
     } catch (error) {
       console.log(error);
     }

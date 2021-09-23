@@ -9,8 +9,15 @@ const FormValidation = {
   mobileInvalid: "Please enter valid mobile number.",
   pinInvalid: "Only 6 character allowed.",
   passwordMin: "Password must be at least 6 characters",
+  passwordInvalid: "Must Contain One Uppercase, One Lowercase, One Number and One Special Case Character",
+  RepatePWD:"Both 'New Password' & 'Conform New Password' need to be the same.",
 };
+const pwdMatch =
+  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$*#?&^_()[\]])[A-Za-z\d@$*#?&^_()[\]]{8,}$/;
+
+  
 const ButtonConstant = {
+  next:"Next",
   cancel: "Cancel",
   save: "Save",
   add: "Add",
@@ -25,6 +32,7 @@ const ButtonConstant = {
   select:"Select",
   genLicence:"Generate Licence",
   payment:"Payment",
+  updatePWD:"Update Password",
 };
 const ConfirmConst = {
   header: "Log-out",
@@ -43,6 +51,18 @@ const RemoveConst = {
   dropText: "Drop image here or click to browse file here",
 };
 const PageConst = {
+  view: "View",
+  edit:"Edit",
+  wallet:"Wallet",
+  prospect:"Prospect",
+  sales:"Sales",
+  delete:"Delete",
+  status: "Status",
+  curPwd:"Current Password",
+  entCurPwd:"Enter Current Password",
+  newPwd:"New Password",
+  entNewPwd:"Enter New Password",
+  cunfNewPwd:"Confirm New Password",  
   logout: "Log Out",
   colon: ":",
   star: "*",
@@ -50,7 +70,7 @@ const PageConst = {
   srNo:"Sr No.",
   notif: "Notifications",
   no: "No",
-  va: "View All",
+  va: "View All", 
   email: "Email",
   search: "Search...",
   mobile: "Mobile Number",
@@ -87,6 +107,9 @@ const PageConst = {
   timePer:"Time Period",
   gstno:"GST No.",
   liceId: "License ID",
+  firstName:"First Name",
+  middleName:"Middle Name",
+  lastName:"Last Name",
 };
 const Months = [
   "Jan",
@@ -109,4 +132,5 @@ export {
   PageConst,
   RemoveConst,
   Months,
+  pwdMatch,
 };

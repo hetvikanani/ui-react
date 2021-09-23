@@ -19,7 +19,7 @@ const SupportStyle = styled.div`
       margin: 0 auto;
       max-width: 30em;
       border-radius: 5px;
-      box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+      box-shadow: 0 0 10px rgb(0, 0, 0, 0.2);
       padding: 2em 3em;
       position: relative;
       .field {

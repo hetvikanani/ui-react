@@ -4,9 +4,18 @@ import { Theme } from "App/theme";
 
 const StyleContainer = styled.div`
   height: 100vh;
-  padding: 1.25rem 2rem;
   width: 100%;
   background-size: cover;
+  background: ${Theme.mainColor};
+  position: relative;
+  overflow: hidden;
+  .canvasDiv {
+    position: absolute;
+  }
+  .logoDiv {   
+    text-align: center;
+  }
+
   .form-div {
     border-radius: 10px;
     width: 30%;
@@ -73,8 +82,6 @@ const StyleContainer = styled.div`
       }
     }
   }
-  .ant-image {
-    margin-left: 40%;
-  }
+  
 `;
 export { StyleContainer };

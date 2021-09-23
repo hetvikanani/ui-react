@@ -41,4 +41,17 @@ const CardData = [
       li_5: "Chat(24*7)",
     },
   ];
-  export { MonthlyData ,AnnualData,CardData};
+
+  const salesAddConstant = {
+    lead:"Lead",
+    gstType:"gstType",
+    gstno:"GST No.",
+    product:"Product",
+    subType:"Subscription Type",
+    timePeriod:"Time Period",
+    liceId:"Licence Id",
+    genLicence:"Generate Licence",
+    payment:"Payment",
+
+  };
+  export { MonthlyData ,AnnualData,CardData,salesAddConstant};

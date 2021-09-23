@@ -5,7 +5,6 @@ import { Theme } from "../../App/theme";
 const ProfileStyle = styled.div`
 display: flex;
 .allDiv{
-
   padding: 3em 1em 1em;
   .optionui {
     border-radius: 4px;
@@ -21,11 +20,7 @@ display: flex;
       margin-left: 5px;
     }
   }
-  .button {
-    display: flex;
-    margin-top: 1rem;
-    justify-content: end;
-  }
+ 
 }
 `;
 

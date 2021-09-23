@@ -4,12 +4,15 @@ const topRowData = [
     { name: "Withdraw" },
   ];
   const tableData = [
-    { tblHeading: "Transaction ID" },
-    { tblHeading: "Details" },
-    { tblHeading: "Transaction Type" },
-    { tblHeading: "Date" },
-    { tblHeading: "Amount" },
+    { details: "System Architect",trType:"Edinburgh",date:"25/08/21",amount:"5000"},
+    { details: "System Architect",trType:"Edinburgh",date:"25/08/21",amount:"5000"},
+    { details: "System Architect",trType:"Edinburgh",date:"25/08/21",amount:"5000"},
+    { details: "System Architect",trType:"Edinburgh",date:"25/08/21",amount:"5000"},
+    { details: "System Architect",trType:"Edinburgh",date:"25/08/21",amount:"5000"},
   ];
+  
+ 
+  
   
   export { topRowData, tableData };
   

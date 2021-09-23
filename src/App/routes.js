@@ -17,9 +17,14 @@ import Profile from "container/Profile";
 import Sales from "container/Sales";
 import SalesAddEdit from "container/SalesAddEdit";
 import Wallet from "container/Wallet";
-import ContactDetail from "container/AddNewPartner/ContactDetails";
-import FinancialDetail from "container/AddNewPartner/Financial";
-import BasicDetail from "container/AddNewPartner/BasicDetails";
+import ForgetPassword from "container/ForgetPassword";
+import KnowledgeBase from "container/KnowledgeBase";
+import ChangePassword from "container/ChangePassword";
+import Partners from "container/Partners";
+import UserList from "container/UserList";
+import NewUser from "container/NewUserAddEdite";
+import PartnerAddEdite from "container/PartnerAddEdite";
+import AdminProduct from "container/AdminProduct";
 
 const routes = [
   {
@@ -33,6 +38,18 @@ const routes = [
     exact: true,
     AuthRoute: false,
     component: Registration,
+  },
+  {
+    path: "/forgetpassword",
+    exact: true,
+    AuthRoute: false,
+    component: ForgetPassword,
+  },
+  {
+    path: "/change-password",
+    exact: true,
+    AuthRoute: false,
+    component: ChangePassword,
   },
   // {
   //   path: "/reset-password",
@@ -113,22 +130,46 @@ const routes = [
     component: Wallet,
   },
   {
-    path: "/admin/contactdetail",
+    path: "/knowledge-base",
     exact: true,
     AuthRoute: true,
-    component: ContactDetail,
+    component: KnowledgeBase,
   },
   {
-    path: "/admin/financialdetail",
+    path: "/partners",
     exact: true,
     AuthRoute: true,
-    component: FinancialDetail,
+    component: Partners,
   },
   {
-    path: "/admin/basicdetail",
+    path: "/userlist",
     exact: true,
     AuthRoute: true,
-    component: BasicDetail,
+    component: UserList,
+  },
+  {
+    path: "/add-new-user",  
+    exact: true,
+    AuthRoute: true,
+    component: NewUser,
+  },
+  {
+    path: "/add-new-partner",
+    exact: true,
+    AuthRoute: true,
+    component: PartnerAddEdite,
+  },
+  {
+    path: "/add-new-product",  
+    exact: true,
+    AuthRoute: true,
+    component: AdminProduct,
+  },
+  {
+    path: "/admin-product",
+    exact: true,
+    AuthRoute: true,
+    component: Products,
   },
 ];
 const PrivateRoute = ({ component: Component, ...rest }) => {

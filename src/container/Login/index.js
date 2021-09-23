@@ -120,7 +120,7 @@ class Login extends Component {
                         <div className="form-error">{errors.password}</div>
                       ) : null}
                       <NavLink to="/forget-password" className="forgetlbl">
-                        {LoginConst.forgerPwd}
+                        {LoginConst.forgetPwd}
                       </NavLink>
                     </div>
                     <div className="btnDiv">

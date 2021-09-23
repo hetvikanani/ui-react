@@ -5,7 +5,7 @@ import { HomeOutlined, UserOutlined } from "@ant-design/icons";
 import { connect } from "react-redux";
 
 import { StyledComponent } from "./style";
-import { MenuItems, HelpMenu, CRMMenu } from "./constant";
+import { MenuItems, HelpMenu, CRMMenu, AdminItems } from "./constant";
 import { logoWhite, nbpl } from "components/Images";
 
 const { SubMenu } = Menu;
@@ -50,39 +50,54 @@ class MenuComponent extends Component {
   };
   menuItem = () => {
     try {
+      let pathname = window.location.pathname;
       const { type, titlekey } = this.state;
       const { location } = this.props;
       let path = location.pathname.slice(1);
       let url = path.toLowerCase();
       url = url.replace("-", " ");
-      let mi = MenuItems;
+      let mi = [];
+
+      let admin =
+        pathname === "/partners" ||
+        pathname === "/add-new-partner" ||
+        pathname === "/admin-product" ||
+        pathname === "/add-new-product" ||
+        pathname === "/userlist" ||
+        pathname === "/add-new-user";
+      if (admin === true) mi = AdminItems;
+      else mi = MenuItems;
       return mi.map((a, i) => {
+        console.log(a,'aaaa')
         let cls =
-          url === a.toLowerCase() || (url === "" && i === 0 && titlekey === "")
+          url === a.title.toLowerCase() || (url === "" && i === 0 && titlekey === "")
             ? "active"
             : "";
-        if (a !== "CRM" && a !== "Help")
+        if (a.title !== "CRM" && a.title !== "Help")
           return (
             <Menu.Item
-              key={a}
+              key={a.title}
               className={`anime ${cls}`}
               icon={i === 0 ? <HomeOutlined /> : <UserOutlined />}
             >
-              {a}
+              {/* {a.icon}{a?.title || a} */}
+{a.title}
             </Menu.Item>
           );
         else {
-          let menu = a === "CRM" ? CRMMenu : HelpMenu;
+          let menu = a.title === "CRM" ? CRMMenu : HelpMenu;
           return (
             <SubMenu
               key={i}
-              title={a}
+              title={a.title}
               icon={<UserOutlined />}
               className="anime"
             >
               {menu.map((a) => (
-                <Menu.Item key={a} className="anime">
-                  {a}
+                <Menu.Item key={a.title} className="anime">
+                  {/* {a} */}
+{a.title}
+
                 </Menu.Item>
               ))}
             </SubMenu>

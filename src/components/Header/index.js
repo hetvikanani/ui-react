@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Image, Modal } from "antd";
 import { QuestionCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 
+import { RenderDrop } from "components/Form";
 import { StyleComponent } from "./style";
 import { setCollapsMenu } from "redux/app/actions";
 import { PageConst, RemoveConst } from "App/AppConstant";
@@ -115,7 +116,8 @@ class Header extends Component {
       className={"fas " + cls}
       onClick={() => this.props.history.push(url)}
     ></i>
-  );
+  );  
+  
   render() {
     const { show, collapsed } = this.props;
     let allwidth = window.innerWidth;
@@ -135,6 +137,8 @@ class Header extends Component {
               {this.iconUI("fa-wallet", "/wallet")}
               {this.iconUI("fa-bell", "/shop")}
               {this.iconUI("fa-user", "/profile")}
+             
+              
             </div>
           </div>
           <NavLink to="/" className="flex mr-auto">

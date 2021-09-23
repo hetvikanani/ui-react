@@ -13,7 +13,7 @@ const DashbordStyle = styled.div`
     .top-row {
       margin-top: 1em;
       .box {
-        box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
         border-top-left-radius: 15px;
         border-bottom-right-radius: 15px;
         margin-right: 10px;
@@ -31,7 +31,7 @@ const DashbordStyle = styled.div`
             margin: auto 0;
             .name {
               color: ${Theme.mainColor};
-              margin: 0px 0 0 10px;
+              margin: 0 0 0 10px;
             }
           }
           .ant-image {
@@ -53,7 +53,7 @@ const DashbordStyle = styled.div`
     .middle-row {
       margin-top: 2em;
       .box {
-        box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
         height: 20em;
         @media ${size["laptop-max"]} {
           margin-bottom: 2em;
@@ -61,7 +61,7 @@ const DashbordStyle = styled.div`
       }
       .slider_div {
         background-color: #ffff;
-        box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
         .ant-image {
           width: 100%;
           .ant-image-img {
@@ -84,7 +84,7 @@ const DashbordStyle = styled.div`
       }
       .referral_div {
         margin-top: 1.5em;
-        box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
         text-align: center;
         h2 {
           font-size: 18px;
@@ -125,13 +125,13 @@ const DashbordStyle = styled.div`
     .bottom_div {
       margin-top: 3em;
       padding: 1em 0.5em;
-      box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
       .ant-col {
         display: flex;
         margin-top: 2em;
         justify-content: center;
         .img_div {
-          box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.1);
+          box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
           height: 2.5em;
           width: 11em;
           display: flex;

@@ -1,4 +1,4 @@
-const LoginConstant = {
+const RegistrationConstant = {
   reg: "Registration",
   forgerPwd: "Forgot Password?",
   donthave: "Don't have an account? ",
@@ -10,6 +10,7 @@ const LoginConstant = {
   email: "Email",
   mobile: "Mobile Number",
   RefC: "Referral code",
+  submit:"Submit",
 };
 
-export { LoginConstant };
+export { RegistrationConstant };

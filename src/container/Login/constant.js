@@ -1,8 +1,6 @@
 const LoginConst = {
   login: "Login",
-  forgerPwd: "Forgot Password?",
-  donthave: "Don't have an account? ",
-  register: "Register here",
+  forgetPwd: "Forgot Password?",
   email: "Email ID",
   pwd: "Password",
 };
