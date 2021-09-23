@@ -67,37 +67,39 @@ class MenuComponent extends Component {
         pathname === "/add-new-user";
       if (admin === true) mi = AdminItems;
       else mi = MenuItems;
-      return mi.map((a, i) => {
-        console.log(a,'aaaa')
+      return mi.map(({ title, Icon }, i) => {
         let cls =
-          url === a.title.toLowerCase() || (url === "" && i === 0 && titlekey === "")
+          url === title.toLowerCase() ||
+          (url === "" && i === 0 && titlekey === "")
             ? "active"
             : "";
-        if (a.title !== "CRM" && a.title !== "Help")
+        if (title !== "CRM" && title !== "Help")
           return (
             <Menu.Item
-              key={a.title}
+              key={title}
               className={`anime ${cls}`}
-              icon={i === 0 ? <HomeOutlined /> : <UserOutlined />}
+              icon={
+                !admin ? i === 0 ? <HomeOutlined /> : <UserOutlined /> : null
+              }
             >
-              {/* {a.icon}{a?.title || a} */}
-{a.title}
+              {/* aaya style dy sk */}
+              <Icon />
+              {title}
             </Menu.Item>
           );
         else {
-          let menu = a.title === "CRM" ? CRMMenu : HelpMenu;
+          let menu = title === "CRM" ? CRMMenu : HelpMenu;
           return (
             <SubMenu
               key={i}
-              title={a.title}
+              title={title}
               icon={<UserOutlined />}
               className="anime"
             >
-              {menu.map((a) => (
-                <Menu.Item key={a.title} className="anime">
-                  {/* {a} */}
-{a.title}
-
+              {menu.map(({ title, Icon }) => (
+                <Menu.Item key={title} className="anime">
+                  <Icon />
+                  {title}
                 </Menu.Item>
               ))}
             </SubMenu>

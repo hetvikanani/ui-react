@@ -1,19 +1,25 @@
 import {
-  adminPartner,
+  AdminPartner,
   adminProduct,
   adminUsers,
   adminSubscribe,
 } from "../Images";
 
-const MenuItems = ["Dashboard", "CRM", "Products", "My Business", "Help"];
+const MenuItems = [
+  { title: "Dashboard" },
+  { title: "CRM" },
+  { title: "Products" },
+  { title: "My Business" },
+  { title: "Help" },
+];
 const CRMMenu = ["Leads", "Sales"];
 const HelpMenu = ["Contact us", "Support", "Knowledge Base", "Media Kit"];
 
 const AdminItems = [
-  { icon: adminPartner, title: "Partners" },
-  { icon: adminProduct, title: "Products" },
-  { icon: adminUsers, title: "Users" },
-  { icon: adminSubscribe, title: "Subscribe" },
+  { Icon: AdminPartner, title: "Partners" },
+  { Icon: AdminPartner, title: "Products" },
+  { Icon: AdminPartner, title: "Users" },
+  { Icon: AdminPartner, title: "Subscribe" },
 ];
 
 export { MenuItems, HelpMenu, CRMMenu, AdminItems };

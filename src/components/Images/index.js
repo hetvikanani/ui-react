@@ -51,11 +51,10 @@ import videoCarousel4 from "assets/images/c4.png";
 import videoCarousel5 from "assets/images/c5.png";
 import view from "assets/images/view.svg";
 import wallet from "assets/images/wallet.svg";
-import adminPartner from "assets/images/adminPartners.svg";
+import { ReactComponent as AdminPartner } from "assets/images/adminPartners.svg";
 import adminProduct from "assets/images/adminProduct.svg";
 import adminSubscribe from "assets/images/adminSubscribe.svg";
 import adminUsers from "assets/images/adminUsers.svg";
-
 
 export {
   meeting,
@@ -111,9 +110,8 @@ export {
   videoCarousel5,
   view,
   wallet,
-  adminPartner,
+  AdminPartner,
   adminProduct,
   adminSubscribe,
   adminUsers,
-
 };
