@@ -81,8 +81,8 @@ class MenuComponent extends Component {
               }
             >
               <div className="adminIcon">
-              {Icon && <Icon width={17}/> }
-            <span className="adminSpan">  {title}</span>
+                {Icon && <Icon width={17} />}
+                <span className="adminSpan"> {title}</span>
               </div>
             </Menu.Item>
           );
@@ -97,7 +97,7 @@ class MenuComponent extends Component {
             >
               {menu.map(({ title, Icon }) => (
                 <Menu.Item key={title} className="anime">
-                   { Icon && <Icon/>}
+                  {Icon && <Icon />}
                   {title}
                 </Menu.Item>
               ))}
