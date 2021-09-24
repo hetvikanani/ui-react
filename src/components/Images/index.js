@@ -52,9 +52,9 @@ import videoCarousel5 from "assets/images/c5.png";
 import view from "assets/images/view.svg";
 import wallet from "assets/images/wallet.svg";
 import { ReactComponent as AdminPartner } from "assets/images/adminPartners.svg";
-import adminProduct from "assets/images/adminProduct.svg";
-import adminSubscribe from "assets/images/adminSubscribe.svg";
-import adminUsers from "assets/images/adminUsers.svg";
+import { ReactComponent as AdminProduct } from "assets/images/adminProduct.svg";
+import { ReactComponent as AdminSubscribe } from "assets/images/adminSubscribe.svg";
+import { ReactComponent as AdminUsers } from "assets/images/adminUsers.svg";
 import headerIcon from "assets/images/headerIcon.svg";
 
 export {
@@ -112,8 +112,8 @@ export {
   view,
   wallet,
   AdminPartner,
-  adminProduct,
-  adminSubscribe,
-  adminUsers,
+  AdminProduct,
+  AdminSubscribe,
+  AdminUsers,
   headerIcon,
 };

@@ -71,6 +71,17 @@ const StyledComponent = styled.div`
   .ant-menu-vertical-left {
     border-right: 0;
   }
+
+
+  .adminIcon{
+  display:flex;
+  align-items:center;
+  .adminSpan{
+    margin-left:10px;
+  }
+  }
+
+ 
 `;
 
 export { StyledComponent };

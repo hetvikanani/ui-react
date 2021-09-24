@@ -1,8 +1,8 @@
 import {
   AdminPartner,
-  adminProduct,
-  adminUsers,
-  adminSubscribe,
+  AdminProduct,
+  AdminUsers,
+  AdminSubscribe,
 } from "../Images";
 
 const MenuItems = [
@@ -12,14 +12,14 @@ const MenuItems = [
   { title: "My Business" },
   { title: "Help" },
 ];
-const CRMMenu = ["Leads", "Sales"];
-const HelpMenu = ["Contact us", "Support", "Knowledge Base", "Media Kit"];
+const CRMMenu = [{title:"Leads"}, {title:"Sales"},];
+const HelpMenu = [{title:"Contact us"}, {title:"Support"}, {title:"Knowledge Base"}, {title:"Media Kit"},];
 
 const AdminItems = [
   { Icon: AdminPartner, title: "Partners" },
-  { Icon: AdminPartner, title: "Products" },
-  { Icon: AdminPartner, title: "Users" },
-  { Icon: AdminPartner, title: "Subscribe" },
-];
+  { Icon: AdminUsers, title: "Products" },
+  { Icon: AdminSubscribe, title: "Users" },
+  { Icon: AdminProduct, title: "Subscribe" },
+];  
 
 export { MenuItems, HelpMenu, CRMMenu, AdminItems };

@@ -162,7 +162,7 @@ class Header extends Component {
                 </>
               )}
               {admin && <>
-                {this.iconUI("fa-user", "/profile")}
+                <Image src={headerIcon} width={35} preview={false}></Image>
               </>}
             </div>
           </div>
