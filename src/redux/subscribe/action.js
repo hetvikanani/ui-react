@@ -30,10 +30,10 @@ export const saveProduct = (payload) => async (dispatch) => {
     }
   };
 
-  export const saveProduct = (payload) => async (dispatch) => {
+  export const getProduct = (id) => async (dispatch) => {
     try {
       dispatch({ type: actions.GET_PRODUCT_INITIATED });
-      let response = await axiosAuthPost(subscribeConst.GET_PRODUCT, payload);
+      let response = await axiosAuthPost(subscribeConst.GET_PRODUCT + id);
       if (response.status || response.code === "200") {
         message.success(response.message);
         await dispatch({
@@ -50,6 +50,31 @@ export const saveProduct = (payload) => async (dispatch) => {
       console.log(error, "action catch");
       dispatch({
         type: actions.GET_PRODUCT_ERROR,
+        error: "Network Error",
+      });
+    }
+  };
+
+  export const deleteProduct = (id) => async (dispatch) => {
+    try {
+      dispatch({ type: actions.DELETE_PRODUCT_INITIATED });
+      let response = await axiosAuthGet(subscribeConst.DELETE_PRODUCT + id);
+      if (response.status || response.code === "200") {
+        message.success(response.message);
+        await dispatch({
+          type: actions.DELETE_PRODUCT_SUCCESS,
+          payload: response,
+        });
+      } else {
+        dispatch({
+          type: actions.DELETE_PRODUCT_ERROR,
+          error: response,
+        });
+      }
+    } catch (error) {
+      console.log(error, "action catch");
+      dispatch({
+        type: actions.DELETE_PRODUCT_ERROR,
         error: "Network Error",
       });
     }

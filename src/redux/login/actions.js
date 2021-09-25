@@ -3,13 +3,13 @@ import { message, notification } from "antd";
 
 import { axiosPost, axiosGet } from "modules/Axios";
 import { loader } from "redux/app/actions";
-import { apiConstant } from "modules/config";
+import { apiConst } from "modules/config";
 import * as actions from "./constant";
 
 export const login = (payload) => async (dispatch) => {
   try {
     dispatch({ type: actions.LOGIN_INITIATED });
-    let response = await axiosPost(apiConstant.AUTH_LOGIN, payload);
+    let response = await axiosPost(apiConst.AUTH_LOGIN, payload);
     if (response.id) {
       //&& (response.role === "employee" || response.role === "admin"))
       let data = {

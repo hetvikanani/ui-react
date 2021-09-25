@@ -1,5 +1,4 @@
 export const configVar = { BASE_URL: "https://partnerapi.naapbooks.com/" };
-​
 export const apiConst = {
   AUTH_LOGIN: "api/Admin​/Login",
   AUTH_LOGOUT: "api/Account/Logout/",
@@ -7,7 +6,7 @@ export const apiConst = {
   // CHECK_SESSION: "api/Account/CheckSession/",
   // CHANGE_PASSWORD: "api/Account/ChangePassword",
   // AUTH_REGISTER: "/api/Chat/Registration",
-  // GET_ALL_USER: "/api/User/GetAllUsers",}
+  // GET_ALL_USER: "/api/User/GetAllUsers",
 };
 export const crmConst = {
   SAVE_PROSPECT: "api​/Partner​/SaveProspect​/",
@@ -29,12 +28,20 @@ export const crmConst = {
   SAVE_SALES: "api​/Partner​/SaveSales/",
   GET_SALES: "api​/Partner​/GetSalesList/",
 };
+
+
+
 export const partnerConst = {
   SAVE_PARTNER: "api​/Admin​/SavePartner/",
   GET_PARTNER: "api​/Admin​/GetPartnerList/",
   DELETE_PARTNER: "api​/Admin​/DeletePartner​/",
   GET_PARTNER_BY_ID: "api​/Admin​/GetPartnerbyId​/",
 };
+
+
+
+
+
 export const partnerUsersConst = {
   LOGIN: "api​/Partner​/Login/",
   FORGET_PASSWORD: "api​/Partner​/ForgotPassword/",
